@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: wp_ironshortsword
+  m_Controller: {fileID: 9100000, guid: b758fba6cb7098f4bb8ae1f9d681f9a3, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4c508066f577ee141936b34aaee9b153, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 75d6715234a06bb4ebe76021192a6152, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f3e3cd28da345a6429c17fbd77c99352, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a32321f22edf69a4c9077eaf6c5576ac, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 18aa7e9a9c553a746a6b8ce5e009c943, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 344bb1d05d8a183468c4d89c21d365f8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 51dd698502d92a44cbad23fd6e6c643f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2debbcb4f3c4bbd4a90a1dc9d2ff30e8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 776344ee6597c39478c76422a3110ee9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 344bb1d05d8a183468c4d89c21d365f8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 26c4fb622d773084288f837a16acca27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6b6107d141200514e8880a512a9a62be, type: 2}

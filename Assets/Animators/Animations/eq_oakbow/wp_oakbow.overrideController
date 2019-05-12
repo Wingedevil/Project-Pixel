@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: wp_oakbow
+  m_Controller: {fileID: 9100000, guid: b758fba6cb7098f4bb8ae1f9d681f9a3, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4c508066f577ee141936b34aaee9b153, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 482fbf5031faafa44b8400b6a12d8684, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f3e3cd28da345a6429c17fbd77c99352, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6337ae8cb1146e84f8fbfbd871710e1c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 776344ee6597c39478c76422a3110ee9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e79f35a132e6f294e8b461d922cdb27e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 18aa7e9a9c553a746a6b8ce5e009c943, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 419ffe9fe4e60aa46b5ad2b3b62702f0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 51dd698502d92a44cbad23fd6e6c643f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8c137bdcc6534c84f9a2e93644498d89, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 26c4fb622d773084288f837a16acca27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 500e8e67e4699154786e2ee29d95067d, type: 2}
