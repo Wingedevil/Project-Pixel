@@ -8,8 +8,9 @@ public class Entity : MonoBehaviour {
     public bool offHandCanAttack;
     public float AttackSpeed = 1.0f;
     public float MoveSpeed = 1.0f;
+    public GameObject Corpse;
     
-    private int curHP;
+    protected int curHP;
 
     public int CurHP {
         get => curHP;
@@ -24,16 +25,17 @@ public class Entity : MonoBehaviour {
     }
 
     protected virtual void Die() {
+        Instantiate(Corpse, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
     // Start is called before the first frame update
-    protected void Start() {
+    protected virtual void Start() {
         curHP = MaxHP;
     }
 
     // Update is called once per frame
-    protected void Update() {
+    protected virtual void Update() {
 
     }
 

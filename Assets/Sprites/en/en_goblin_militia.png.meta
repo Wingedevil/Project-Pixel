@@ -6,6 +6,7 @@ TextureImporter:
     21300002: en_goblin_militia_1
     21300004: en_goblin_militia_2
     21300006: en_goblin_militia_3
+    21300008: en_goblin_militia_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -114,7 +115,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -124,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98af90ae2db680a4bbba8bba4594d420
+      spriteID: 1e2bb41a9f2b66046a28d4f6323721e5
       vertices: []
       indices: 
       edges: []
@@ -134,7 +135,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -144,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5a16ef133c6094a82f914167f05f92
+      spriteID: 473edc5191c4dd74ba0bf72f22b095fe
       vertices: []
       indices: 
       edges: []
@@ -154,7 +155,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -164,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a3af4b12e833e8488d35386b9337244
+      spriteID: 4cb8e89799bc9fc47aa18a0bcb433aaa
       vertices: []
       indices: 
       edges: []
@@ -174,6 +175,26 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8063fff80f851a4eb22afd80f5037af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: en_goblin_militia_4
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 128
         height: 128
@@ -184,7 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 582108293fe3319438a1f5731771f98a
+      spriteID: 0f023c034cc80af40b8071489785274e
       vertices: []
       indices: 
       edges: []
