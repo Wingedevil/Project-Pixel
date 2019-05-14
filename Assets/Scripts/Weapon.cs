@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : Item {
+public class Weapon : MonoBehaviour {
     public static Vector3 DISPLACEMENT = new Vector3(0f, -3.5f / 16f, 0f);
     public static float MELEE_DISPLACEMENT = 0.3f;
     public static float RANGED_DISPLACEMENT = 0f;

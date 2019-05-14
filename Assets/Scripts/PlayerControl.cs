@@ -7,14 +7,14 @@ public class PlayerControl : MonoBehaviour {
     public GameObject testPrefab;
 
     GameObject player;
-    Entity playerEntity;
+    PlayerEntity playerEntity;
 
     const float GLOBAL_SPEED_MULT = 1f;
 
     // Start is called before the first frame update
     void Start() {
         player = GameObject.FindGameObjectsWithTag("Player")[0];
-        playerEntity = player.GetComponent<Entity>();
+        playerEntity = player.GetComponent<PlayerEntity>();
     }
     
     private Vector3 FindShotDirection() {
@@ -58,12 +58,17 @@ public class PlayerControl : MonoBehaviour {
                 }
                 playerEntity.Cast("Arcane Bolt", shootingDir);
             }
+            
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                playerEntity.TryToPickUp();
+            }
 
             //debug tools
             if (Input.GetKeyDown(KeyCode.C)) {
                 PlayerStats.InventoryAddItem(testPrefab);
             }
 
+            /*
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 playerEntity.UpdateAnimators("2H", false);
                 playerEntity.UpdateAnimators("Bow", false);
@@ -80,6 +85,7 @@ public class PlayerControl : MonoBehaviour {
                 playerEntity.UpdateAnimators("2H", false);
                 playerEntity.UpdateAnimators("Bow", true);
             }
+            */
             //end debug tools
 
             Vector3 dir = Vector3.zero;

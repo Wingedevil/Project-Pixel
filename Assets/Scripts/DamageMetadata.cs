@@ -19,7 +19,7 @@ public class DamageMetadata {
     }
 
     public bool IsHybrid {
-        get => IsMagical && IsHybrid;
+        get => IsMagical && IsPhysical;
     }
 
     public DamageMetadata(int dmg, bool phy, bool mag) {

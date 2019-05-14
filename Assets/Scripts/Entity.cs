@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Entity : MonoBehaviour {
     public int MaxHP;
-    public GameObject damageText;
+    public GameObject popupText;
     public bool offHandCanAttack;
     public float AttackSpeed = 1.0f;
     public float MoveSpeed = 1.0f;
@@ -20,8 +20,8 @@ public class Entity : MonoBehaviour {
     }
 
     public virtual void TakeDamage(DamageMetadata meta) {
-        GameObject newText = Instantiate(damageText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
-        newText.GetComponent<DamageText>().FeedMetaData(meta, this.transform.position);
+        GameObject newText = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+        newText.GetComponent<PopupText>().FeedDamageMetaData(meta, this.transform.position);
         curHP -= meta.Damage;
         if (curHP <= 0) {
             Die();
@@ -57,7 +57,8 @@ public class Entity : MonoBehaviour {
             } else {
                 UpdateAnimators("2H", false);
             }
-        } catch (Exception) {
+        } catch (Exception e) {
+            Debug.Log(e);
             UpdateAnimators("2H", false);
         }
         UpdateAnimators("Attack", true);

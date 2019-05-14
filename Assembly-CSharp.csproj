@@ -114,7 +114,6 @@
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
     <Compile Include="Assets\Scripts\DamageMetadata.cs" />
-    <Compile Include="Assets\Scripts\DamageText.cs" />
     <Compile Include="Assets\Scripts\Enemy\BasicEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
@@ -123,6 +122,7 @@
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerEntity.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\PopupText.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ProjectileDictionary.cs" />
     <Compile Include="Assets\Scripts\Spells\ArcaneBolt.cs" />

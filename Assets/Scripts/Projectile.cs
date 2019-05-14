@@ -42,8 +42,8 @@ public class Projectile : MonoBehaviour {
             try {
                 other.gameObject.GetComponent<Entity>().TakeDamage(new DamageMetadata(Damage, IsPhysical, IsMagical));
                 Destroy(this.gameObject);
-            } catch (Exception) {
-
+            } catch (Exception e) {
+                Debug.Log(e);
             }
         }
         collidedTime += Time.deltaTime;
