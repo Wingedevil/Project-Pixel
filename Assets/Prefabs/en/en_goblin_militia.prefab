@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 10
+  damageText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
+    type: 3}
   offHandCanAttack: 0
   AttackSpeed: 1
   MoveSpeed: 1

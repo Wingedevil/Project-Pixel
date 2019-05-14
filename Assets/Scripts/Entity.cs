@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Entity : MonoBehaviour {
     public int MaxHP;
+    public GameObject damageText;
     public bool offHandCanAttack;
     public float AttackSpeed = 1.0f;
     public float MoveSpeed = 1.0f;
@@ -17,8 +19,10 @@ public class Entity : MonoBehaviour {
         set => curHP = value;
     }
 
-    public virtual void TakeDamage(int hp) {
-        curHP -= hp;
+    public virtual void TakeDamage(DamageMetadata meta) {
+        GameObject newText = Instantiate(damageText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+        newText.GetComponent<DamageText>().FeedMetaData(meta, this.transform.position);
+        curHP -= meta.Damage;
         if (curHP <= 0) {
             Die();
         }

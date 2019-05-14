@@ -6,6 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
     public const float HIT_TIME = 0.02f;
 
+    public bool IsPhysical;
     public bool IsMagical;
     public int Damage;
     public float lifeTime;
@@ -39,7 +40,7 @@ public class Projectile : MonoBehaviour {
                 return;
             }
             try {
-                other.gameObject.GetComponent<Entity>().TakeDamage(Damage);
+                other.gameObject.GetComponent<Entity>().TakeDamage(new DamageMetadata(Damage, IsPhysical, IsMagical));
                 Destroy(this.gameObject);
             } catch (Exception) {
 

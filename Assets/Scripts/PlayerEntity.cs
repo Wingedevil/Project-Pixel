@@ -20,12 +20,12 @@ public class PlayerEntity : Entity {
         this.gameObject.SetActive(false);
     }
 
-    public override void TakeDamage(int hp) {
+    public override void TakeDamage(DamageMetadata meta) {
         if (vulnerable) {
             timeAlrInvuln = 0.0f;
             flashIntervalCounter = 0.0f;
             vulnerable = false;
-            base.TakeDamage(hp);
+            base.TakeDamage(meta);
         }
     }
 
