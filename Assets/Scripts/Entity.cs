@@ -29,7 +29,7 @@ public class Entity : MonoBehaviour {
     }
 
     protected virtual void Die() {
-        Instantiate(Corpse, this.transform.position, Quaternion.identity);
+        Instantiate(Corpse, this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -1;
         Destroy(this.gameObject);
     }
 

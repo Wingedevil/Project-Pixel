@@ -15,6 +15,10 @@ public class PlayerEntity : Entity {
     public GameObject OffhandItem;
     public GameObject ArmorItem;
 
+    protected Item.Type WeaponType;
+    protected Item.Type OffhandType;
+    protected Item.Type ArmorType;
+
     protected bool vulnerable = true;
     protected bool visible = true;
     protected float flashIntervalCounter = 0.0f;
@@ -23,8 +27,7 @@ public class PlayerEntity : Entity {
     private List<GameObject> itemList;
 
     public bool TryToPickUp() {
-        if (!this.GetComponentsInChildren<Animator>()[0].GetCurrentAnimatorStateInfo(0).IsName("Moving")
-            && !this.GetComponentsInChildren<Animator>()[0].GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
+        if (!this.GetComponentsInChildren<Animator>()[0].GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
             return false;
         }
         try {
@@ -36,25 +39,28 @@ public class PlayerEntity : Entity {
                     foreach (Transform child in ArmorSlot.transform) {
                         GameObject.Destroy(child.gameObject);
                     }
-                    Instantiate(itemPickedUp.GetComponent<Item>().ItemReference, ArmorSlot.transform);
+                    Instantiate(itemPickedUp.GetComponent<Item>().ItemReference, ArmorSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 2;
+                    ;
                     ArmorItem = Instantiate(itemPickedUp, ArmorSlot.transform);
                     ArmorItem.SetActive(false);
                     ArmorItem.transform.position = Vector3.zero;
-                    Destroy(itemPickedUp);
                     GameObject newTextA = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
                     newTextA.GetComponent<PopupText>().Equip(ArmorItem.GetComponent<Item>(), this.transform.position);
+                    ArmorType = itemPickedUp.GetComponent<Item>().ItemType;
+                    Destroy(itemPickedUp);
                     break;
                 case Item.Type.Shield:
                     Instantiate(OffhandItem, this.transform.position, Quaternion.identity).SetActive(true);
                     foreach (Transform child in OffhandSlot.transform) {
                         GameObject.Destroy(child.gameObject);
                     }
-                    Instantiate(itemPickedUp.GetComponent<Item>().ItemReference, OffhandSlot.transform);
+                    Instantiate(itemPickedUp.GetComponent<Item>().ItemReference, OffhandSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 4;
                     OffhandItem = Instantiate(itemPickedUp, OffhandSlot.transform);
                     OffhandItem.SetActive(false);
                     OffhandItem.transform.position = Vector3.zero;
                     GameObject newTextO = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
                     newTextO.GetComponent<PopupText>().Equip(OffhandItem.GetComponent<Item>(), this.transform.position);
+                    OffhandType = itemPickedUp.GetComponent<Item>().ItemType;
                     Destroy(itemPickedUp);
                     break;
                 case Item.Type.Bow:
@@ -62,14 +68,14 @@ public class PlayerEntity : Entity {
                     foreach (Transform child in WeaponSlot.transform) {
                         GameObject.Destroy(child.gameObject);
                     }
-                    Instantiate(itemPickedUp.GetComponent<Item>().ItemReference, WeaponSlot.transform);
+                    Instantiate(itemPickedUp.GetComponent<Item>().ItemReference, WeaponSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 3;
                     WeaponItem = Instantiate(itemPickedUp, WeaponSlot.transform);
                     WeaponItem.SetActive(false);
                     WeaponItem.transform.position = Vector3.zero;
-                    Destroy(itemPickedUp);
                     GameObject newTextB = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
                     newTextB.GetComponent<PopupText>().Equip(WeaponItem.GetComponent<Item>(), this.transform.position);
-                    UpdateAnimators("Bow", true);
+                    WeaponType = Item.Type.Bow;
+                    Destroy(itemPickedUp);
                     break;
                 case Item.Type.Staff:
                 case Item.Type.Sword:
@@ -77,26 +83,33 @@ public class PlayerEntity : Entity {
                     foreach (Transform child in WeaponSlot.transform) {
                         GameObject.Destroy(child.gameObject);
                     }
-                    Instantiate(itemPickedUp.GetComponent<Item>().ItemReference, WeaponSlot.transform);
+                    Instantiate(itemPickedUp.GetComponent<Item>().ItemReference, WeaponSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 3;
                     WeaponItem = Instantiate(itemPickedUp, WeaponSlot.transform);
                     WeaponItem.SetActive(false);
                     WeaponItem.transform.position = Vector3.zero;
-                    Destroy(itemPickedUp);
                     GameObject newTextTR = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
                     newTextTR.GetComponent<PopupText>().Equip(WeaponItem.GetComponent<Item>(), this.transform.position);
-                    UpdateAnimators("Bow", false);
+                    WeaponType = itemPickedUp.GetComponent<Item>().ItemType;
+                    Destroy(itemPickedUp);
                     break;
                 default:
                     break;
             }
+            UpdateAnimators();
             return true;
-        } catch (Exception e) {
+        } catch (ArgumentOutOfRangeException) {
             //no item underneath player
-            Debug.Log(e);
             return false;
         }
     }
 
+    protected void UpdateAnimators() {
+        if (WeaponType == Item.Type.Bow) {
+            UpdateAnimators("Bow", true);
+        } else {
+            UpdateAnimators("Bow", false);
+        }
+    }
     protected override void Die() {
         Instantiate(Corpse, this.transform.position, Quaternion.identity);
         this.gameObject.SetActive(false);

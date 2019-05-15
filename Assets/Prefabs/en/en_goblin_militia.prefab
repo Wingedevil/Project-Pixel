@@ -59,10 +59,8 @@ MonoBehaviour:
   RejectionRadius: 1
   AttackCooldown: 3
   Player: {fileID: 0}
-  Drops:
-  - {fileID: 7727680567879362752, guid: 38cec7a50c205b641842d4b0239311a7, type: 3}
-  DropChances:
-  - 0.05
+  Drops: []
+  DropChances: []
   DistanceToPlayer: 0.7
 --- !u!50 &5780018930900835041
 Rigidbody2D:
