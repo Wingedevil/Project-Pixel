@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1729183366638702738}
   - component: {fileID: 1729183366638702739}
   m_Layer: 0
-  m_Name: Fists of Fury Offhand
+  m_Name: Off Fist of Fury
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Fists of Fury
-  ItemType: 1
+  ItemType: 0
   Thumbnail: {fileID: 0}
   ItemReference: {fileID: 6383243901698074275, guid: 78c976c6d821f9c4c97d8b9bd197741f,
     type: 3}

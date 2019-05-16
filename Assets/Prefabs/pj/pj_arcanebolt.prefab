@@ -133,8 +133,8 @@ MonoBehaviour:
   IsPhysical: 0
   IsMagical: 1
   Damage: 0
-  lifeTime: 1.2
-  Speed: 3
+  lifeTime: 1.5
+  Speed: 3.2
   Direction: {x: 0, y: 0, z: 0}
 --- !u!50 &6385558743967555361
 Rigidbody2D:

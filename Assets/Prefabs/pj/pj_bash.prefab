@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7263292652051421712}
   - component: {fileID: 7263292652051421713}
   - component: {fileID: 7263292652051421714}
-  - component: {fileID: 7263292652051421719}
+  - component: {fileID: 7243538346645981005}
   - component: {fileID: 832934580512203838}
   - component: {fileID: 5328432898087270629}
   m_Layer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7263292652051421715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.477, y: -0.477, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7263292652051421719
+--- !u!114 &7243538346645981005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7263292652051421715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b006416b3f9010940b06748ba5c9f9d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 42ecfb21209bb834fa0a464fa78b94f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsPhysical: 1
@@ -120,6 +120,7 @@ MonoBehaviour:
   lifeTime: 0.1
   Speed: 3
   Direction: {x: 0, y: 0, z: 0}
+  KnockbackDistance: 0.3
 --- !u!70 &832934580512203838
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

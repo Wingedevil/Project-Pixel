@@ -112,9 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Thumbnail: {fileID: 21300000, guid: b76c96bc81ae6fd4a9ce569d0db8be5d, type: 3}
-  Name: Iron Shortsword
-  WeaponAttack: 5
+  WeaponAttack: 3
   IsMelee: 1
   Projectile: {fileID: 3075678422686835395, guid: 29467655496008a4b96b08a77fca2572,
     type: 3}

@@ -3,18 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Spellbook {
-    public static Dictionary<string, Tuple<string, Spell>> Spells = new Dictionary<string, Tuple<string, Spell>> {
-        { "Arcane Bolt", new Tuple<string, Spell>("OnhandSpell", new ArcaneBolt()) }
-    };
+public class Spellbook : MonoBehaviour {
+    private static List<GameObject> PrivateSpells;
 
-    public static Spell GetSpell(string name) {
-        Spells.TryGetValue(name, out Tuple<string, Spell> rtv);
-        return rtv.Item2;
+    private void Start() {
+        PrivateSpells = new List<GameObject>();
+        foreach (Transform tr in this.GetComponentInChildren<Transform>()) {
+            if (tr.GetComponent<Spell>() != null) {
+                PrivateSpells.Add(tr.gameObject);
+            }
+        }
     }
-
-    public static string GetType(string name) {
-        Spells.TryGetValue(name, out Tuple<string, Spell> rtv);
-        return rtv.Item1;
+    public static Spell GetSpell(string name) {
+        foreach (GameObject go in PrivateSpells) {
+            if (go.GetComponent<Spell>().Name == name) {
+                return go.GetComponent<Spell>();
+            }
+        }
+        return null;
     }
 }

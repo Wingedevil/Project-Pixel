@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5780018930900835043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5780018931863741443}
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 10
+  MaxSP: 0
+  MaxMP: 0
   popupText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
     type: 3}
   offHandCanAttack: 0
@@ -57,10 +59,13 @@ MonoBehaviour:
   MoveSpeed: 1
   Corpse: {fileID: 2092439006926997480, guid: 62c39f1fd1ddf3e48868750835761197, type: 3}
   RejectionRadius: 1
+  ActivateDistance: 5
   AttackCooldown: 3
   Player: {fileID: 0}
   Drops: []
   DropChances: []
+  MoveThreshold: 0.5
+  AlertDistance: 2
   DistanceToPlayer: 0.7
 --- !u!50 &5780018930900835041
 Rigidbody2D:
@@ -289,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponAttack: 2
+  WeaponAttack: 4
   IsMelee: 1
   Projectile: {fileID: 3838118392502209751, guid: 698b284111ab2a2429ccf99d6e471caf,
     type: 3}

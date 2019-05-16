@@ -113,25 +113,39 @@
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
-    <Compile Include="Assets\Scripts\DamageMetadata.cs" />
     <Compile Include="Assets\Scripts\Enemy\BasicEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Entity.cs" />
+    <Compile Include="Assets\Scripts\Entity\Entity.cs" />
+    <Compile Include="Assets\Scripts\Entity\Wall.cs" />
+    <Compile Include="Assets\Scripts\Equipment\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Equipment\Item.cs" />
+    <Compile Include="Assets\Scripts\Equipment\Weapon.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Item.cs" />
-    <Compile Include="Assets\Scripts\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\PlayerEntity.cs" />
-    <Compile Include="Assets\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\PopupText.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Scripts\ProjectileDictionary.cs" />
+    <Compile Include="Assets\Scripts\Passives\Endure.cs" />
+    <Compile Include="Assets\Scripts\Passives\MPStream.cs" />
+    <Compile Include="Assets\Scripts\Passives\MPStreamIdentifier.cs" />
+    <Compile Include="Assets\Scripts\Passives\Zen.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerEntity.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\DamageMetadata.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\HomingProjectile.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\KnockbackProjectile.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\PiercingProjectile.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
     <Compile Include="Assets\Scripts\Spells\ArcaneBolt.cs" />
+    <Compile Include="Assets\Scripts\Spells\ArcaneMissiles.cs" />
+    <Compile Include="Assets\Scripts\Spells\ArcaneStorm.cs" />
+    <Compile Include="Assets\Scripts\Spells\PowerShot.cs" />
     <Compile Include="Assets\Scripts\Spells\Spell.cs" />
     <Compile Include="Assets\Scripts\Spells\Spellbook.cs" />
-    <Compile Include="Assets\Scripts\Wall.cs" />
-    <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Tiles\Down.cs" />
+    <Compile Include="Assets\Scripts\Tiles\Spikes.cs" />
+    <Compile Include="Assets\Scripts\UIandCamera\CMCamera.cs" />
+    <Compile Include="Assets\Scripts\UIandCamera\PopupText.cs" />
+    <Compile Include="Assets\Scripts\UIandCamera\UIBar.cs" />
     <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
-    <None Include="Assets\Shaders\RedFlash.shader" />
+    <None Include="Assets\Scripts\Shaders\RedFlash.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Unity/Projects/Project Pixel/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -146,6 +160,12 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>D:/Unity/Projects/Project Pixel/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+      <HintPath>D:/Unity/Projects/Project Pixel/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras">
+      <HintPath>D:/Unity/Projects/Project Pixel/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

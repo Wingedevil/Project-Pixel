@@ -5,9 +5,9 @@ using UnityEngine;
 
 public abstract class Enemy : Entity {
     public const float FORCE_MAGNITUDE = 3.0f;
-    public const float ALIVE_DISTANCE = 5.0f;
 
     public float RejectionRadius = 1.0f;
+    public float ActivateDistance = 5.0f;
     public float AttackCooldown = 5.0f;
     public GameObject Player;
     public GameObject[] Drops;
@@ -18,7 +18,7 @@ public abstract class Enemy : Entity {
     protected override void Die() {
         for (int i = 0; i < DropChances.Length; i++) {
             if (UnityEngine.Random.Range(0, 1) <= DropChances[i]) {
-                Instantiate(Drops[i], this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = 0;
+                Instantiate(Drops[i], this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -2;
             }
         }
         base.Die();
@@ -35,7 +35,7 @@ public abstract class Enemy : Entity {
     }
 
     // Update is called once per frame
-    protected new void Update() {
+    protected override void Update() {
         base.Update();
         CurrentAttackCooldown -= CurrentAttackCooldown <= 0 ? 0 : Time.deltaTime;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Enemy")) {
@@ -44,7 +44,7 @@ public abstract class Enemy : Entity {
             if (distance <= RejectionRadius) {
                 if (go.GetComponent<Entity>() is null || ReferenceEquals(go, this.gameObject)) {
                 } else {
-                    go.GetComponent<Rigidbody2D>().AddForce((Vector2)forceDirection * FORCE_MAGNITUDE / distance * distance);
+                    go.GetComponent<Rigidbody2D>().AddForce((Vector2)forceDirection * FORCE_MAGNITUDE / (distance * distance));
                 }
             }
         }

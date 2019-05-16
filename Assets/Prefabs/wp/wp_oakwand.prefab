@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponAttack: 5
+  WeaponAttack: 3
   IsMelee: 0
-  Projectile: {fileID: 4433881914002003264, guid: 5bd135ed5ac57bb4eb4d21f6c452d4b7,
+  Projectile: {fileID: 8089425373408422431, guid: ce307567b97d43a46b2b30484ce0dcf3,
     type: 3}
   ProjectileScale: 1

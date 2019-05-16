@@ -118,7 +118,7 @@ MonoBehaviour:
   IsMagical: 0
   Damage: 5
   lifeTime: 1.5
-  Speed: 8
+  Speed: 6
   Direction: {x: 0, y: 0, z: 0}
 --- !u!61 &6863137277224605113
 BoxCollider2D:

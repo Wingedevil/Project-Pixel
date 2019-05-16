@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Inventory
   - Canvas
+  - MP Stream
   layers:
   - Default
   - TransparentFX
