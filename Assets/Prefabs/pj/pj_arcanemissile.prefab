@@ -123,6 +123,7 @@ MonoBehaviour:
   LockOn: 0
   SearchRadius: 5
   RotationSpeed: 3
+  RotationAcceleration: 1
   TagToHome: Enemy
 --- !u!58 &8678000050141021057
 CircleCollider2D:

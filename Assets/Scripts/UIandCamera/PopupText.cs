@@ -7,8 +7,9 @@ public class PopupText : MonoBehaviour
 {
     public const float DESTROY_AT = 60.0f;
 
+    public Color NO_DAMAGE = Color.grey;
     public Color PHYSICAL_DAMAGE = Color.yellow;
-    public Color MAGICAL_DAMAGE = Color.blue;
+    public Color MAGICAL_DAMAGE = Color.cyan;
     public Color HYBRID_DAMAGE = Color.magenta;
     public Color PURE_DAMAGE = Color.red;
 
@@ -33,9 +34,11 @@ public class PopupText : MonoBehaviour
     }
 
     public void FeedDamageMetaData(DamageMetadata meta, Vector3 tf) {
-        Target = tf + new Vector3(Random.Range(-0.1f, 0.1f), 0, 0);
+        Target = tf + Random.onUnitSphere * 0.2f;
         this.GetComponent<Text>().text = "-" + meta.Damage;
-        if (meta.IsHybrid) {
+        if (meta.Damage == 0) {
+            this.GetComponent<Text>().color = NO_DAMAGE;
+        } else if (meta.IsHybrid) {
             this.GetComponent<Text>().color = HYBRID_DAMAGE;
         } else if (meta.IsPhysical) {
             this.GetComponent<Text>().color = PHYSICAL_DAMAGE;

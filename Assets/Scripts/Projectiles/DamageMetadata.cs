@@ -22,6 +22,10 @@ public class DamageMetadata {
         get => IsMagical && IsPhysical;
     }
 
+    public bool IsPure {
+        get => !IsMagical && !IsPhysical;
+    }
+
     public DamageMetadata(int dmg, bool phy, bool mag) {
         Damage = dmg;
         IsPhysical = phy;

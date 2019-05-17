@@ -50,7 +50,7 @@ public class PlayerControl : MonoBehaviour {
                 playerEntity.NotAttacking();
             }
 
-            if (Input.GetKeyDown(KeyCode.Q)) {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 Vector3 shootingDir = FindShotDirection();
                 needToFlip = false;
                 if (shootingDir.x != 0) {
@@ -58,13 +58,29 @@ public class PlayerControl : MonoBehaviour {
                 }
                 playerEntity.Cast("Arcane Storm", shootingDir);
             }
-            if (Input.GetKeyDown(KeyCode.R)) {
+            if (Input.GetKeyDown(KeyCode.Alpha2)) {
                 Vector3 shootingDir = FindShotDirection();
                 needToFlip = false;
                 if (shootingDir.x != 0) {
                     playerEntity.Flip(Math.Sign(shootingDir.x));
                 }
                 playerEntity.Cast("Arcane Missiles", shootingDir);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3)) {
+                Vector3 shootingDir = FindShotDirection();
+                needToFlip = false;
+                if (shootingDir.x != 0) {
+                    playerEntity.Flip(Math.Sign(shootingDir.x));
+                }
+                playerEntity.Cast("Powershot", shootingDir);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4)) {
+                Vector3 shootingDir = FindShotDirection();
+                needToFlip = false;
+                if (shootingDir.x != 0) {
+                    playerEntity.Flip(Math.Sign(shootingDir.x));
+                }
+                playerEntity.Cast("Power Strike", shootingDir);
             }
 
             if (Input.GetKeyDown(KeyCode.Space)) {

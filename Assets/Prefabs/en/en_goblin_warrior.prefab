@@ -49,9 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4fc96b98695fc4086e2f06f362ac6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 25
+  MaxHP: 60
   MaxSP: 0
   MaxMP: 0
+  PhysicalArmor: 2
+  PhysicalReduction: 1
+  MagicalResistance: 1
   popupText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
     type: 3}
   offHandCanAttack: 0
@@ -64,6 +67,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   Drops: []
   DropChances: []
+  MoveThreshold: 0.5
+  AlertDistance: 2
   DistanceToPlayer: 1
 --- !u!50 &2031932530122413602
 Rigidbody2D:
@@ -292,7 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponAttack: 12
+  PhysicalArmor: 0
+  PhysicalReduction: 0
+  MagicalResistance: 1
+  WeaponAttack: 30
   IsMelee: 1
   Projectile: {fileID: 3075678422686835395, guid: 29467655496008a4b96b08a77fca2572,
     type: 3}

@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1378093551106450433}
+  - component: {fileID: 1629707061114091250}
   - component: {fileID: 3820526454703792137}
   - component: {fileID: 7435249516994393090}
-  - component: {fileID: 6387575126151774409}
+  - component: {fileID: 5118304038453178547}
   m_Layer: 5
   m_Name: PopupText
   m_TagString: Untagged
@@ -38,6 +39,23 @@ RectTransform:
   m_AnchoredPosition: {x: 1024, y: 0}
   m_SizeDelta: {x: 500, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1629707061114091250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458826115852612499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9ee42a7d2545d49b0ea4105316e038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NO_DAMAGE: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  PHYSICAL_DAMAGE: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  MAGICAL_DAMAGE: {r: 0, g: 1, b: 1, a: 1}
+  HYBRID_DAMAGE: {r: 1, g: 0, b: 1, a: 1}
+  PURE_DAMAGE: {r: 1, g: 0, b: 0, a: 1}
 --- !u!222 &3820526454703792137
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80,7 +98,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: HELLO
---- !u!114 &6387575126151774409
+--- !u!114 &5118304038453178547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,10 +107,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3458826115852612499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9ee42a7d2545d49b0ea4105316e038, type: 3}
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PHYSICAL_DAMAGE: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  MAGICAL_DAMAGE: {r: 0, g: 0, b: 1, a: 1}
-  HYBRID_DAMAGE: {r: 1, g: 0, b: 1, a: 1}
-  PURE_DAMAGE: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1

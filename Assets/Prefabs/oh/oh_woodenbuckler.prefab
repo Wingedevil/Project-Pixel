@@ -112,7 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponAttack: 2
+  PhysicalArmor: 0
+  PhysicalReduction: 1
+  MagicalResistance: 1
+  WeaponAttack: 10
   IsMelee: 0
   Projectile: {fileID: 7263292652051421715, guid: 1b226608eedf96e4b89369b787cfc7dc,
     type: 3}

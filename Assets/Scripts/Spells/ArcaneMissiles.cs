@@ -30,6 +30,9 @@ public class ArcaneMissiles : Spell {
             newProj.GetComponent<Projectile>().Direction = Vector3.Normalize(newDir + Random.insideUnitSphere * 0.5f);
             newProj.GetComponent<Projectile>().Damage = PrimarySpellDamage;
             newProj.tag = tagger;
+            if (newProj.GetComponent<HomingProjectile>()) {
+                newProj.GetComponent<HomingProjectile>().TagToHome = newProj.tag == "Enemy" ? "Player" : "Enemy";
+            }
             Invoke("SummonProjectile", INTERVAL_BETWEEN_PROJECTILES);
         }
     }

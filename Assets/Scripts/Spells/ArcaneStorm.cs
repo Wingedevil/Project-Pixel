@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArcaneStorm : Spell {
-    private const int NUMBER_OF_PROJECTILES = 10;
+    private const int NUMBER_OF_PROJECTILES = 25;
     private int numberOfProjectiles;
-    private const float INTERVAL_BETWEEN_PROJECTILES = 0.05f;
+    private const float INTERVAL_BETWEEN_PROJECTILES = 0.02f;
     private Transform tf;
     private Vector3 dir;
     private string tagger;

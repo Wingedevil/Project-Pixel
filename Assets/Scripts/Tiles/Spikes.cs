@@ -6,11 +6,10 @@ public class Spikes : MonoBehaviour {
     public GameObject Reticule;
     public GameObject[] Prereqs;
 
+    private bool display = false;
     // Start is called before the first frame update
     void Start() {
-        foreach (GameObject go in Prereqs) {
-            Instantiate(Reticule, go.transform);
-        }
+
     }
 
     // Update is called once per frame
@@ -21,5 +20,16 @@ public class Spikes : MonoBehaviour {
             }
         }
         Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (display) {
+            return;
+        }
+        foreach (GameObject go in Prereqs) {
+            if (go != null) {
+                Instantiate(Reticule, go.transform);
+            }
+        }
     }
 }

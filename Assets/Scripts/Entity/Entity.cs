@@ -14,18 +14,47 @@ public class Entity : MonoBehaviour {
     protected float curSP;
     public int MaxMP;
     protected float curMP;
+
+    public int PhysicalArmor;
+    public int PhysicalReduction;
+    public float MagicalResistance = 1.0f;
+
     public GameObject popupText;
     public bool offHandCanAttack;
     public float AttackSpeed = 1.0f;
     public float MoveSpeed = 1.0f;
     public GameObject Corpse;
 
+    
     private bool alive = true;
 
+    public virtual DamageMetadata DamageReduction(DamageMetadata meta) {
+        float damage = meta.Damage;
+        if (meta.IsHybrid) {
+            float magDamage = damage * MagicalResistance;
+            float percentageReduction = 20.0f / (20 + PhysicalArmor);
+            float phyDamage = damage - PhysicalReduction;
+            phyDamage = damage * percentageReduction;
+            damage -= Mathf.Sqrt((1 - magDamage) * (1 - phyDamage));
+        } else if (meta.IsMagical) {
+            damage *= MagicalResistance;
+        } else if (meta.IsPhysical) {
+            float percentageReduction = 20.0f / (20 + PhysicalArmor);
+            damage -= PhysicalReduction;
+            damage *= percentageReduction;
+        }
+
+        DamageMetadata rtv = new DamageMetadata((int)Mathf.Round(damage), meta.IsPhysical, meta.IsMagical);
+        return rtv;
+    }
+
     public virtual void TakeDamage(DamageMetadata meta) {
+        DamageMetadata newMeta = DamageReduction(meta);
         GameObject newText = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
-        newText.GetComponent<PopupText>().FeedDamageMetaData(meta, this.transform.position);
-        curHP -= meta.Damage;
+        newText.GetComponent<PopupText>().FeedDamageMetaData(newMeta, this.transform.position);
+        if (meta.Damage > 0) {
+            curHP -= newMeta.Damage;
+        }
         if (curHP <= 0 && alive) {
             alive = false;
             Die();

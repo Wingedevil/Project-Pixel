@@ -9,6 +9,7 @@ public class HomingProjectile : Projectile {
     public bool LockOn = true;
     public float SearchRadius;
     public float RotationSpeed;
+    public float RotationAcceleration;
     public string TagToHome;
 
     private GameObject target;
@@ -25,7 +26,7 @@ public class HomingProjectile : Projectile {
             float minDist = float.MaxValue;
             foreach (GameObject go in GameObject.FindGameObjectsWithTag(TagToHome)) {
                 float tempDist = Vector3.Distance(go.transform.position, this.transform.position);
-                if (tempDist < minDist && tempDist <= SearchRadius) {
+                if (tempDist < minDist && tempDist <= SearchRadius && go.GetComponent<Projectile>() == null) {
                     target = go;
                     minDist = tempDist;
                 }
@@ -37,10 +38,11 @@ public class HomingProjectile : Projectile {
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Lerp(transform.rotation, q, RotationSpeed * Time.deltaTime);
-        } catch (NullReferenceException) {
+        } catch (MissingReferenceException) {
 
         }
 
         this.GetComponent<Rigidbody2D>().velocity = transform.right * Speed;
+        RotationSpeed += RotationAcceleration * Time.deltaTime;
     }
 }

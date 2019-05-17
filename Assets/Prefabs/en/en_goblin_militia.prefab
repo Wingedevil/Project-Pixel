@@ -49,9 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4fc96b98695fc4086e2f06f362ac6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 25
   MaxSP: 0
   MaxMP: 0
+  PhysicalArmor: 0
+  PhysicalReduction: 0
+  MagicalArmor: 0
+  MagicalReduction: 0
   popupText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
     type: 3}
   offHandCanAttack: 0
@@ -294,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponAttack: 4
+  WeaponAttack: 10
   IsMelee: 1
   Projectile: {fileID: 3838118392502209751, guid: 698b284111ab2a2429ccf99d6e471caf,
     type: 3}

@@ -47,13 +47,14 @@ public class PlayerEntity : Entity {
                             GameObject.Destroy(child.gameObject);
                         }
                         Instantiate(interactable.GetComponent<Item>().ItemReference, ArmorSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 2;
-                        ;
+                        ArmorItem.GetComponent<Interactable>().Uninteract(this);
                         ArmorItem = Instantiate(interactable, ArmorSlot.transform);
                         ArmorItem.SetActive(false);
                         ArmorItem.transform.position = Vector3.zero;
                         GameObject newTextA = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
                         newTextA.GetComponent<PopupText>().Equip(ArmorItem.GetComponent<Item>(), this.transform.position);
                         ArmorType = interactable.GetComponent<Item>().ItemType;
+                        interactable.GetComponent<Interactable>().Interact(this);
                         Destroy(interactable);
                         break;
                     case Item.Type.Shield:
@@ -62,12 +63,14 @@ public class PlayerEntity : Entity {
                             GameObject.Destroy(child.gameObject);
                         }
                         Instantiate(interactable.GetComponent<Item>().ItemReference, OffhandSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 4;
+                        OffhandItem.GetComponent<Interactable>().Uninteract(this);
                         OffhandItem = Instantiate(interactable, OffhandSlot.transform);
                         OffhandItem.SetActive(false);
                         OffhandItem.transform.position = Vector3.zero;
                         GameObject newTextO = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
                         newTextO.GetComponent<PopupText>().Equip(OffhandItem.GetComponent<Item>(), this.transform.position);
                         OffhandType = interactable.GetComponent<Item>().ItemType;
+                        interactable.GetComponent<Interactable>().Interact(this);
                         Destroy(interactable);
                         break;
                     case Item.Type.Bow:
@@ -76,12 +79,14 @@ public class PlayerEntity : Entity {
                             GameObject.Destroy(child.gameObject);
                         }
                         Instantiate(interactable.GetComponent<Item>().ItemReference, WeaponSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 3;
+                        WeaponItem.GetComponent<Interactable>().Uninteract(this);
                         WeaponItem = Instantiate(interactable, WeaponSlot.transform);
                         WeaponItem.SetActive(false);
                         WeaponItem.transform.position = Vector3.zero;
                         GameObject newTextB = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
                         newTextB.GetComponent<PopupText>().Equip(WeaponItem.GetComponent<Item>(), this.transform.position);
                         WeaponType = Item.Type.Bow;
+                        interactable.GetComponent<Interactable>().Interact(this);
                         Destroy(interactable);
                         break;
                     case Item.Type.Staff:
@@ -91,12 +96,14 @@ public class PlayerEntity : Entity {
                             GameObject.Destroy(child.gameObject);
                         }
                         Instantiate(interactable.GetComponent<Item>().ItemReference, WeaponSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 3;
+                        WeaponItem.GetComponent<Interactable>().Uninteract(this);
                         WeaponItem = Instantiate(interactable, WeaponSlot.transform);
                         WeaponItem.SetActive(false);
                         WeaponItem.transform.position = Vector3.zero;
                         GameObject newTextTR = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
                         newTextTR.GetComponent<PopupText>().Equip(WeaponItem.GetComponent<Item>(), this.transform.position);
                         WeaponType = interactable.GetComponent<Item>().ItemType;
+                        interactable.GetComponent<Interactable>().Interact(this);
                         Destroy(interactable);
                         break;
                     default:
@@ -105,7 +112,7 @@ public class PlayerEntity : Entity {
                 UpdateAnimators();
                 return true;
             } else {
-                interactable.GetComponent<Interactable>().Interact();
+                interactable.GetComponent<Interactable>().Interact(this);
                 return true;
             }
         } catch (ArgumentOutOfRangeException e) {
@@ -188,9 +195,12 @@ public class PlayerEntity : Entity {
 
     public override void TakeDamage(DamageMetadata meta) {
         if (vulnerable) {
-            timeAlrInvuln = 0.0f;
-            flashIntervalCounter = 0.0f;
-            vulnerable = false;
+            if (meta.Damage >= 0) {
+                timeAlrInvuln = 0.0f;
+                flashIntervalCounter = 0.0f;
+                vulnerable = false;
+                this.GetComponent<Collider2D>().enabled = false;
+            }
             base.TakeDamage(meta);
             HPBar.GetComponent<UIBar>().ChangeSize(1.0f * curHP / MaxHP);
         }
@@ -217,10 +227,13 @@ public class PlayerEntity : Entity {
         base.Start();
         interactableList = new List<GameObject>();
         Instantiate(ArmorItem.GetComponent<Item>().ItemReference, ArmorSlot.transform);
+        ArmorItem.GetComponent<Interactable>().Interact(this);
         ArmorSlot.GetComponentsInChildren<SpriteRenderer>()[0].sortingOrder = 2;
         Instantiate(WeaponItem.GetComponent<Item>().ItemReference, WeaponSlot.transform);
+        WeaponItem.GetComponent<Interactable>().Interact(this);
         WeaponSlot.GetComponentsInChildren<SpriteRenderer>()[0].sortingOrder = 3;
         Instantiate(OffhandItem.GetComponent<Item>().ItemReference, OffhandSlot.transform);
+        OffhandItem.GetComponent<Interactable>().Interact(this);
         OffhandSlot.GetComponentsInChildren<SpriteRenderer>()[0].sortingOrder = 4;
     }
 
@@ -231,6 +244,7 @@ public class PlayerEntity : Entity {
         if (!vulnerable) {
             if (timeAlrInvuln >= TIME_INVULNERABLE) {
                 vulnerable = true;
+                this.GetComponent<Collider2D>().enabled = true;
                 SetAllSpriteRender(true);
             } else {
                 if (flashIntervalCounter >= FLASH_INTERVAL) {

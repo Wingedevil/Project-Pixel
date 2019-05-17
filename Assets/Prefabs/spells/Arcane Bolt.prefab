@@ -48,6 +48,6 @@ MonoBehaviour:
   MPCost: 5
   SPCost: 0
   Cooldown: 1
-  PrimarySpellDamage: 8
+  PrimarySpellDamage: 20
   PrimarySpellProjectile: {fileID: 4433881914002003264, guid: 5bd135ed5ac57bb4eb4d21f6c452d4b7,
     type: 3}
