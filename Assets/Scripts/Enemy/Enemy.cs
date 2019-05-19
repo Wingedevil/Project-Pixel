@@ -28,7 +28,7 @@ public abstract class Enemy : Entity {
     protected new void Start() {
         base.Start();
         Player = GameObject.FindGameObjectsWithTag("Player")[0];
-        CurrentAttackCooldown = AttackCooldown;
+        CurrentAttackCooldown = 0;
         foreach (SpriteRenderer sr in this.GetComponentsInChildren<SpriteRenderer>()) {
             sr.sortingOrder = -2;
         }

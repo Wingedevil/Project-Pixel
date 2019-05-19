@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArcaneMissiles : Spell {
     private const int NUMBER_OF_PROJECTILES = 3;
     private int numberOfProjectiles;
-    private const float INTERVAL_BETWEEN_PROJECTILES = 0.02f;
+    private const float INTERVAL_BETWEEN_PROJECTILES = 0.05f;
     private Transform tf;
     private Vector3 dir;
     private string tagger;

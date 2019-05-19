@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerEntity : Entity {
     public const float TIME_INVULNERABLE = 1.0f;
+    public const float PERCENTAGE_MAX_INVULNERABLE = 0.05f;
     public const float FLASH_INTERVAL = 1f / 30f;
 
     public GameObject HPBar;
@@ -27,7 +28,7 @@ public class PlayerEntity : Entity {
     protected bool vulnerable = true;
     protected bool visible = true;
     protected float flashIntervalCounter = 0.0f;
-    protected float timeAlrInvuln = 0.0f;
+    protected float timeInvuln = 0.0f;
     
     private List<GameObject> interactableList;
 
@@ -189,14 +190,14 @@ public class PlayerEntity : Entity {
     }
 
     protected override void Die() {
-        Instantiate(Corpse, this.transform.position, Quaternion.identity);
+        Instantiate(Corpse, this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -5;
         this.gameObject.SetActive(false);
     }
 
     public override void TakeDamage(DamageMetadata meta) {
         if (vulnerable) {
             if (meta.Damage >= 0) {
-                timeAlrInvuln = 0.0f;
+                timeInvuln = TIME_INVULNERABLE * Mathf.Clamp(meta.Damage / (PERCENTAGE_MAX_INVULNERABLE * MaxHP), 0.1f, 1.0f);
                 flashIntervalCounter = 0.0f;
                 vulnerable = false;
                 this.GetComponent<Collider2D>().enabled = false;
@@ -242,7 +243,7 @@ public class PlayerEntity : Entity {
         MPBar.GetComponent<UIBar>().ChangeSize(1.0f * curMP / MaxMP);
         SPBar.GetComponent<UIBar>().ChangeSize(1.0f * curSP / MaxSP);
         if (!vulnerable) {
-            if (timeAlrInvuln >= TIME_INVULNERABLE) {
+            if (timeInvuln <= 0.0) {
                 vulnerable = true;
                 this.GetComponent<Collider2D>().enabled = true;
                 SetAllSpriteRender(true);
@@ -254,7 +255,7 @@ public class PlayerEntity : Entity {
                 } else {
                     flashIntervalCounter += Time.deltaTime;
                 }
-                timeAlrInvuln += Time.deltaTime;
+                timeInvuln -= Time.deltaTime;
             }
         }
     }

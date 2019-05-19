@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8678000050141021068}
   - component: {fileID: 8678000050141021057}
   - component: {fileID: 8678000050141021056}
+  - component: {fileID: 7001512120233942562}
   m_Layer: 0
   m_Name: pj_arcanemissile
   m_TagString: Untagged
@@ -114,14 +115,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba464025df42009449df1de951f5caff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMelee: 0
   IsPhysical: 0
   IsMagical: 1
   Damage: 0
   lifeTime: 3
   Speed: 3
   Direction: {x: 0, y: 0, z: 0}
+  DieParticleSystem: {fileID: 7847207397216544142, guid: 76778773edbb89b48b1d0a6d95760ce0,
+    type: 3}
+  DieParticleColor: {r: 0.8431373, g: 0.7960785, b: 0.8745099, a: 0}
   LockOn: 0
-  SearchRadius: 5
+  SearchRadius: 3
   RotationSpeed: 3
   RotationAcceleration: 1
   TagToHome: Enemy
@@ -162,3 +167,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7001512120233942562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8678000050141021067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0619529f87de054181a6ea94a6b127f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartColor: {r: 0.7568628, g: 0.454902, b: 0.7137255, a: 0}
+  EndColor: {r: 0.8431373, g: 0.7960785, b: 0.8745099, a: 0}
+  Trail: {fileID: 8591396705382734134, guid: 256996da1f5cf10468ea6ac33910952c, type: 3}

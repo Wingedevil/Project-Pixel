@@ -3,7 +3,9 @@ guid: 1c032b853c96aa347a53965ac122c576
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - DieParticleSystem: {fileID: 7847207397216544142, guid: 76778773edbb89b48b1d0a6d95760ce0,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

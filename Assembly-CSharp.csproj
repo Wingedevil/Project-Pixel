@@ -124,12 +124,17 @@
     <Compile Include="Assets\Scripts\Equipment\Item.cs" />
     <Compile Include="Assets\Scripts\Equipment\Weapon.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Particles\KillParticleSystem.cs" />
+    <Compile Include="Assets\Scripts\Particles\ParticleTrail.cs" />
     <Compile Include="Assets\Scripts\Passives\Endure.cs" />
+    <Compile Include="Assets\Scripts\Passives\EntropyAura.cs" />
     <Compile Include="Assets\Scripts\Passives\MPStream.cs" />
     <Compile Include="Assets\Scripts\Passives\MPStreamIdentifier.cs" />
+    <Compile Include="Assets\Scripts\Passives\PassiveCounterSpell.cs" />
     <Compile Include="Assets\Scripts\Passives\Zen.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerEntity.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerPrefs.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Projectiles\DamageMetadata.cs" />
     <Compile Include="Assets\Scripts\Projectiles\HealingProjectile.cs" />
@@ -141,7 +146,6 @@
     <Compile Include="Assets\Scripts\Spells\ArcaneMissiles.cs" />
     <Compile Include="Assets\Scripts\Spells\ArcaneStorm.cs" />
     <Compile Include="Assets\Scripts\Spells\BasicSpell.cs" />
-    <Compile Include="Assets\Scripts\Spells\EntropyAura.cs" />
     <Compile Include="Assets\Scripts\Spells\HealingBurst.cs" />
     <Compile Include="Assets\Scripts\Spells\PowerShot.cs" />
     <Compile Include="Assets\Scripts\Spells\PowerStrike.cs" />

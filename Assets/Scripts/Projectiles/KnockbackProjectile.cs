@@ -10,7 +10,7 @@ public class KnockbackProjectile : Projectile {
         if (other.gameObject.tag != this.gameObject.tag && collidedTime >= HIT_TIME) {
             if (other.gameObject.tag == "Wall") {
                 if (other.OverlapPoint(transform.position)) {
-                    Destroy(this.gameObject);
+                    this.Kill();
                 }
                 return;
             }
@@ -20,7 +20,7 @@ public class KnockbackProjectile : Projectile {
                     other.transform.position
                     + Vector3.Normalize(Direction) * KnockbackDistance
                     );
-                Destroy(this.gameObject);
+                this.Kill();
             } catch (NullReferenceException) {
                 //I dont care about the other object
             }

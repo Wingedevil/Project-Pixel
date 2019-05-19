@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     public const float HIT_TIME = 0.02f;
-
+    
+    public bool IsMelee;
     public bool IsPhysical;
     public bool IsMagical;
     public int Damage;
     public float lifeTime;
     public float Speed;
     public Vector3 Direction;
+    public GameObject DieParticleSystem;
+    public Color DieParticleColor;
 
     protected float age;
     protected float collidedTime;
@@ -26,9 +29,28 @@ public class Projectile : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update() {
         if (age >= lifeTime) {
-            Destroy(gameObject);
+            Kill();
         }
         age += Time.deltaTime;
+    }
+
+    public void Kill() {
+        if (IsMelee) {
+            KillWithoutExplosion();
+            return;
+        }
+        try {
+            ParticleSystem ps = Instantiate(DieParticleSystem, this.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+            ParticleSystem.MainModule psMain = ps.main;
+            psMain.startColor = new Color(DieParticleColor.r, DieParticleColor.g, DieParticleColor.b);
+        } catch (UnassignedReferenceException) {
+
+        }
+        Destroy(this.gameObject);
+    }
+
+    public void KillWithoutExplosion() {
+        Destroy(this.gameObject);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
@@ -39,13 +61,13 @@ public class Projectile : MonoBehaviour {
         if (other.gameObject.tag != this.gameObject.tag && collidedTime >= HIT_TIME) {
             if (other.gameObject.tag == "Wall") {
                 if (other.OverlapPoint(transform.position)) {
-                    Destroy(this.gameObject);
+                    Kill();
                 }
                 return;
             }
             try {
                 other.gameObject.GetComponent<Entity>().TakeDamage(new DamageMetadata(Damage, IsPhysical, IsMagical));
-                Destroy(this.gameObject);
+                Kill();
             } catch (NullReferenceException) {
                 //I dont care about the other object
             }

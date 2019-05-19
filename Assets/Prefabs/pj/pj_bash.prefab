@@ -114,12 +114,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ecfb21209bb834fa0a464fa78b94f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMelee: 1
   IsPhysical: 1
   IsMagical: 0
   Damage: 0
   lifeTime: 0.1
   Speed: 3
   Direction: {x: 0, y: 0, z: 0}
+  DieParticleSystem: {fileID: 0}
+  DieParticleColor: {r: 0, g: 0, b: 0, a: 0}
   KnockbackDistance: 0.3
 --- !u!70 &832934580512203838
 CapsuleCollider2D:

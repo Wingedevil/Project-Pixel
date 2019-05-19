@@ -115,12 +115,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b006416b3f9010940b06748ba5c9f9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMelee: 0
   IsPhysical: 1
   IsMagical: 0
   Damage: 5
   lifeTime: 1.5
   Speed: 6
   Direction: {x: 0, y: 0, z: 0}
+  DieParticleSystem: {fileID: 7847207397216544142, guid: 76778773edbb89b48b1d0a6d95760ce0,
+    type: 3}
+  DieParticleColor: {r: 0.43529415, g: 0.2627451, b: 0.09019608, a: 0}
 --- !u!61 &6863137277224605113
 BoxCollider2D:
   m_ObjectHideFlags: 0

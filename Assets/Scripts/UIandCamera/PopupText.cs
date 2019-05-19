@@ -33,6 +33,13 @@ public class PopupText : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
+    public void FeedText(string text, int fontSize, Vector3 tf, Color color) {
+        Target = tf + Random.onUnitSphere * 0.2f;
+        this.GetComponent<Text>().text = text;
+        this.GetComponent<Text>().fontSize = fontSize;
+        this.GetComponent<Text>().color = color;
+    }
 
     public void FeedDamageMetaData(DamageMetadata meta, Vector3 tf) {
         Target = tf + Random.onUnitSphere * 0.2f;

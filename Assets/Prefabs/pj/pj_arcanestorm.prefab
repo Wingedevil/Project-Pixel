@@ -130,12 +130,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b006416b3f9010940b06748ba5c9f9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMelee: 0
   IsPhysical: 0
   IsMagical: 1
   Damage: 1
   lifeTime: 1
   Speed: 3.5
   Direction: {x: 0, y: 0, z: 0}
+  DieParticleSystem: {fileID: 0}
+  DieParticleColor: {r: 0.9490197, g: 0.9490197, b: 0.9490197, a: 0}
 --- !u!50 &8383164926779982062
 Rigidbody2D:
   serializedVersion: 4

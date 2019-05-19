@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f36e8485685524fae1db120428822d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DISPLACEMENT: {x: 0, y: -0.1875, z: 0}
+  explode: {fileID: 7847207397216544142, guid: 76778773edbb89b48b1d0a6d95760ce0, type: 3}
   Radius: 2
   TimeBetweenTicks: 1
   PercentDamagePerTick: 0.02

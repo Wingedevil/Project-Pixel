@@ -22,7 +22,7 @@ public class PiercingProjectile : Projectile {
         if (other.gameObject.tag != this.gameObject.tag && collidedTime >= HIT_TIME) {
             if (other.gameObject.tag == "Wall") {
                 if (other.OverlapPoint(transform.position)) {
-                    Destroy(this.gameObject);
+                    this.Kill();
                 }
                 return;
             }
