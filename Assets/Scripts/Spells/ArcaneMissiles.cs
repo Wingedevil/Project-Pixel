@@ -27,7 +27,7 @@ public class ArcaneMissiles : Spell {
             GameObject newProj = Instantiate(PrimarySpellProjectile, tf.position + DISPLACEMENT, Quaternion.identity);
             Vector3 newDir = Vector3.Normalize(dir + Random.insideUnitSphere * 1.0f);
             newProj.transform.Rotate(0, 0, Mathf.Rad2Deg * Mathf.Atan2(newDir.y, newDir.x));
-            newProj.GetComponent<Projectile>().Direction = Vector3.Normalize(newDir + Random.insideUnitSphere * 0.5f);
+            newProj.GetComponent<Projectile>().Direction = Vector3.Normalize(newDir);
             newProj.GetComponent<Projectile>().Damage = PrimarySpellDamage;
             newProj.tag = tagger;
             if (newProj.GetComponent<HomingProjectile>()) {

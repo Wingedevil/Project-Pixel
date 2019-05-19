@@ -111,18 +111,18 @@ TextureImporter:
       name: pj_slash_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 32
+        y: 8
+        width: 26
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 8, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6def527cd7949c4a9c7827d04c4db6d
+      spriteID: 0783c01b30d70a146af130a450f608f2
       vertices: []
       indices: 
       edges: []
@@ -131,18 +131,18 @@ TextureImporter:
       name: pj_slash_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 102
         y: 0
-        width: 64
-        height: 64
+        width: 26
+        height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0deb10c4d301ada4c99e4d3d0981fd82
+      spriteID: 183bbeac42059eb4496b1fe2c09d7a66
       vertices: []
       indices: 
       edges: []

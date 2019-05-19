@@ -7,7 +7,7 @@ public class BasicEnemy : Enemy {
     public float AlertDistance = 2.0f;
     public float DistanceToPlayer;
     
-    private Pathfinding.AIBase aiBase;
+    protected Pathfinding.AIBase aiBase;
 
     // Start is called before the first frame update
     protected new void Start() {
@@ -34,7 +34,7 @@ public class BasicEnemy : Enemy {
             transform.localScale = new Vector3(1, 1, 1);
         } else if (directionToPlayer.x < -0.01f) {
             transform.localScale = new Vector3(-1, 1, 1);
-        }
+        }   
 
         if (CurrentAttackCooldown <= 0f && Vector3.Magnitude(Player.transform.position - this.transform.position) <= DistanceToPlayer) {
             Attack(directionToPlayer);

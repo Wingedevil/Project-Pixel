@@ -111,18 +111,18 @@ TextureImporter:
       name: pj_energybolt_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 24
-      alignment: 9
-      pivot: {x: 0.625, y: 0.5}
+        x: 3
+        y: 3
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6386e7b0a0c73974aab13673ac876bf6
+      spriteID: 4fd43093392403143baf4b0bb7367e6c
       vertices: []
       indices: 
       edges: []
@@ -131,18 +131,18 @@ TextureImporter:
       name: pj_energybolt_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 24
-      alignment: 9
-      pivot: {x: 0.625, y: 0.5}
+        x: 35
+        y: 3
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8121ef93d71cb2a4587b0fe2bce61782
+      spriteID: 1635231504cdff34a870f72c6ec257a7
       vertices: []
       indices: 
       edges: []

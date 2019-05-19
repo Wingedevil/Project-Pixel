@@ -12,6 +12,7 @@ public class PopupText : MonoBehaviour
     public Color MAGICAL_DAMAGE = Color.cyan;
     public Color HYBRID_DAMAGE = Color.magenta;
     public Color PURE_DAMAGE = Color.red;
+    public Color HEAL = Color.green;
 
     private float RateOfRise = 0.5f;
     private float Risen = 0.0f;
@@ -47,6 +48,12 @@ public class PopupText : MonoBehaviour
         } else {
             this.GetComponent<Text>().color = PURE_DAMAGE;
         }
+    }
+
+    public void FeedHealMetaData(DamageMetadata meta, Vector3 tf) {
+        Target = tf + Random.onUnitSphere * 0.2f;
+        this.GetComponent<Text>().text = "" + meta.Damage;
+        this.GetComponent<Text>().color = HEAL;
     }
 
     public void Equip(Item item, Vector3 tf) {

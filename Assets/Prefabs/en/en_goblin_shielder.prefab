@@ -59,7 +59,7 @@ MonoBehaviour:
     type: 3}
   offHandCanAttack: 0
   AttackSpeed: 1
-  MoveSpeed: 1
+  MoveSpeed: 1.2
   Corpse: {fileID: 2092439006926997480, guid: 62c39f1fd1ddf3e48868750835761197, type: 3}
   RejectionRadius: 1
   ActivateDistance: 5

@@ -40,6 +40,8 @@ public class HomingProjectile : Projectile {
             transform.rotation = Quaternion.Lerp(transform.rotation, q, RotationSpeed * Time.deltaTime);
         } catch (MissingReferenceException) {
 
+        } catch (NullReferenceException) {
+
         }
 
         this.GetComponent<Rigidbody2D>().velocity = transform.right * Speed;

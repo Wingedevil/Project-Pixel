@@ -71,8 +71,7 @@ MonoBehaviour:
   MoveThreshold: 2.4
   AlertDistance: 2
   DistanceToPlayer: 2.6
-  Spells:
-  - {fileID: 0}
+  CastDistance: 3
 --- !u!50 &2686559156951751512
 Rigidbody2D:
   serializedVersion: 4
@@ -303,7 +302,7 @@ MonoBehaviour:
   PhysicalArmor: 0
   PhysicalReduction: 0
   MagicalResistance: 1
-  WeaponAttack: 20
+  WeaponAttack: 15
   IsMelee: 0
   Projectile: {fileID: 8089425373408422431, guid: ce307567b97d43a46b2b30484ce0dcf3,
     type: 3}

@@ -48,6 +48,18 @@ public class Entity : MonoBehaviour {
         return rtv;
     }
 
+    public virtual void Heal(DamageMetadata meta) {
+        if (curHP < MaxHP) {
+            DamageMetadata newMeta = DamageReduction(meta);
+            GameObject newText = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+            newText.GetComponent<PopupText>().FeedHealMetaData(newMeta, this.transform.position);
+            if (meta.Damage > 0) {
+                curHP += newMeta.Damage;
+                curHP = curHP > MaxHP ? MaxHP : curHP ;
+            }
+        }
+    }
+
     public virtual void TakeDamage(DamageMetadata meta) {
         DamageMetadata newMeta = DamageReduction(meta);
         GameObject newText = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);

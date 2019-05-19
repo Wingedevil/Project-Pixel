@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PiercingProjectile : Projectile {
-    public new const float HIT_TIME = 0.1f;
+    public new const float HIT_TIME = 0.05f;
 
     protected override void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag != this.gameObject.tag) {
