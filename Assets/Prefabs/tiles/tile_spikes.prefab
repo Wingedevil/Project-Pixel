@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8542618621551147731}
   - component: {fileID: 8542618621551147728}
   - component: {fileID: 8542618621551147732}
-  - component: {fileID: 8542618621551147730}
+  - component: {fileID: 7152998297023801934}
   m_Layer: 0
-  m_Name: Spikes
+  m_Name: tile_spikes
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -18
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 1613d01d489352c4cb03a1fdb1adc391, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -90,7 +90,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8542618621551147729}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a89541674083c974889e2f50600bdc79, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -107,7 +107,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8542618621551147730
+--- !u!114 &7152998297023801934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,6 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba53742cdf241545842fac6854520f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
+    type: 3}
   Reticule: {fileID: 2611276826572672123, guid: a2ab50f0d4120ff48aa1de359c67b485,
     type: 3}
   Prereqs: []
+  PrereqTime: 0

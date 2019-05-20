@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcaneStorm : Spell {
+public class ArcaneStorm : WeaponSpell {
     private const int NUMBER_OF_PROJECTILES = 25;
     private int numberOfProjectiles;
     private const float INTERVAL_BETWEEN_PROJECTILES = 0.02f;
@@ -28,7 +28,7 @@ public class ArcaneStorm : Spell {
             Vector3 newDir = Vector3.Normalize(dir + Random.insideUnitSphere * 0.2f);
             newProj.transform.Rotate(0, 0, Mathf.Rad2Deg * Mathf.Atan2(newDir.y, newDir.x));
             newProj.GetComponent<Projectile>().Direction = Vector3.Normalize(newDir + Random.insideUnitSphere * 0.2f);
-            newProj.GetComponent<Projectile>().Damage = PrimarySpellDamage;
+            newProj.GetComponent<Projectile>().Damage = GetDamage();
             newProj.tag = tagger;
             Invoke("SummonProjectile", INTERVAL_BETWEEN_PROJECTILES);
         }

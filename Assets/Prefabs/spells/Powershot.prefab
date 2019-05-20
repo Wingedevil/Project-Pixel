@@ -46,8 +46,9 @@ MonoBehaviour:
   Name: Powershot
   Type: 2
   MPCost: 0
-  SPCost: 10
+  SPCost: 12
   Cooldown: 3
-  PrimarySpellDamage: 20
+  PrimarySpellDamage: 5
   PrimarySpellProjectile: {fileID: 1078750307605469523, guid: 452a25a9f53663e42beffdd6bf76a9d4,
     type: 3}
+  WeaponPercentDamage: 1.2

@@ -45,9 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Seeking Fury
   Type: 0
+  HPCost: 0
   MPCost: 10
   SPCost: 0
-  Cooldown: 5
+  Cooldown: 7
   PrimarySpellDamage: 15
   PrimarySpellProjectile: {fileID: 3696298994691003325, guid: e160acdbf5b472c40b7966091ddff23c,
     type: 3}

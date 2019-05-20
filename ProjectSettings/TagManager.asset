@@ -9,6 +9,7 @@ TagManager:
   - Inventory
   - Canvas
   - MP Stream
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

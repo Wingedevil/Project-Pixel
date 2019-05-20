@@ -15,6 +15,7 @@ public abstract class Spell : MonoBehaviour {
 
     public string Name;
     public SpellType Type;
+    public int HPCost = 0;
     public int MPCost = 0;
     public int SPCost = 0;
     public float Cooldown;
@@ -30,7 +31,10 @@ public abstract class Spell : MonoBehaviour {
     void Start() {
         CurrentCooldown = 0.0f;
     }
-    void Update() {
+    protected virtual void Update() {
         CurrentCooldown -= CurrentCooldown <= 0 ? 0 : Time.deltaTime;
+    }
+    public virtual int GetDamage() {
+        return (int)Mathf.Round(this.GetComponentInParent<Entity>().SpellDamageAmp * PrimarySpellDamage);
     }
 }

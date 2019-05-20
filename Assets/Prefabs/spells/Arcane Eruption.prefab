@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1446112118955401491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1446112118955401493}
+  - component: {fileID: 1446112118955401488}
+  m_Layer: 0
+  m_Name: Arcane Eruption
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1446112118955401493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446112118955401491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1446112118955401488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446112118955401491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4553e696cad2564980567bf67015e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Arcane Eruption
+  Type: 0
+  HPCost: 10
+  MPCost: 35
+  SPCost: 0
+  Cooldown: 15
+  PrimarySpellDamage: 3
+  PrimarySpellProjectile: {fileID: 8678000050141021067, guid: 68a88e49f6ee58947bdee8fb78522c34,
+    type: 3}
+  WeaponPercentDamage: 0.5
+  SecondarySpellDamage: 1
+  SecondaryWeaponPercentDamage: 0.5
+  SecondarySpellProjectile: {fileID: 7399508104975616548, guid: c68e7a391ee797841aaebcb619bab1a2,
+    type: 3}
+  SecondaryProjectileLifeTime: 1

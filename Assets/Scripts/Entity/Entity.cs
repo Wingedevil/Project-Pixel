@@ -5,19 +5,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Entity : MonoBehaviour {
-    public const float MP_REGEN = 0.5f;
-    public const float SP_REGEN = 0.5f;
+    public const float MP_REGEN = 2.0f;
+    public const float SP_REGEN = 2.0f;
 
     public int MaxHP;
-    protected float curHP;
+    public float curHP;
     public int MaxSP;
-    protected float curSP;
+    public float curSP;
     public int MaxMP;
-    protected float curMP;
+    public float curMP;
 
     public int PhysicalArmor;
     public int PhysicalReduction;
     public float MagicalResistance = 1.0f;
+
+    public float SpellDamageAmp = 1.0f;
+    public float MPCost = 1.0f;
+    public float SPCost = 1.0f;
 
     public GameObject popupText;
     public bool offHandCanAttack;
@@ -46,6 +50,14 @@ public class Entity : MonoBehaviour {
 
         DamageMetadata rtv = new DamageMetadata((int)Mathf.Round(damage), meta.IsPhysical, meta.IsMagical);
         return rtv;
+    }
+
+    public virtual void SetHPTo1() {
+        if (curHP != 1) {
+            GameObject newText = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+            newText.GetComponent<PopupText>().FeedText("Decay", 15, this.transform.position, Color.black);
+        }
+        curHP = 1;
     }
 
     public virtual void Heal(DamageMetadata meta) {
@@ -87,7 +99,7 @@ public class Entity : MonoBehaviour {
 
     // Update is called once per frame
     protected virtual void Update() {
-        curMP += curMP < MaxHP ? MP_REGEN * Time.deltaTime : 0;
+        curMP += curMP < MaxMP ? MP_REGEN * Time.deltaTime : 0;
         curSP += curSP < MaxSP ? SP_REGEN * Time.deltaTime : 0;
         curMP = Mathf.Min(curMP, MaxMP);
         curSP = Mathf.Min(curSP, MaxSP);

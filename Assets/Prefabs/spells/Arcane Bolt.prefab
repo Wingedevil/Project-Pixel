@@ -45,9 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Arcane Bolt
   Type: 0
-  MPCost: 5
+  MPCost: 10
   SPCost: 0
   Cooldown: 1
-  PrimarySpellDamage: 20
+  PrimarySpellDamage: 8
   PrimarySpellProjectile: {fileID: 4433881914002003264, guid: 5bd135ed5ac57bb4eb4d21f6c452d4b7,
     type: 3}
+  WeaponPercentDamage: 1.25

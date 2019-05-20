@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Endure : MonoBehaviour {
-    public float SP_REGEN = 2.0f;
+    public float SP_REGEN = 10.0f;
 
     private PlayerEntity playerEntity;
 

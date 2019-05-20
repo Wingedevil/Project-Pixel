@@ -45,9 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Healing Burst
   Type: 0
+  HPCost: 0
   MPCost: 10
   SPCost: 0
-  Cooldown: 3
+  Cooldown: 5
   PrimarySpellDamage: 5
   PrimarySpellProjectile: {fileID: 7632116420962741742, guid: 18333908cfe44eb4794f76a56806d5e2,
     type: 3}

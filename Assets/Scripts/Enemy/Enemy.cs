@@ -17,7 +17,7 @@ public abstract class Enemy : Entity {
 
     protected override void Die() {
         for (int i = 0; i < DropChances.Length; i++) {
-            if (UnityEngine.Random.Range(0, 1) <= DropChances[i]) {
+            if (UnityEngine.Random.Range(0f, 1f) <= DropChances[i]) {
                 Instantiate(Drops[i], this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -2;
             }
         }

@@ -9,9 +9,23 @@ public class PlayerEntity : Entity {
     public const float PERCENTAGE_MAX_INVULNERABLE = 0.05f;
     public const float FLASH_INTERVAL = 1f / 30f;
 
-    public GameObject HPBar;
-    public GameObject MPBar;
-    public GameObject SPBar;
+    private bool _MPEnabled = true;
+    public bool MPEnabled {
+        get => _MPEnabled;
+        set {
+            _MPEnabled = value;
+            UpdateBars();
+        }
+    }
+
+    private bool _SPEnabled = false;
+    public bool SPEnabled {
+        get => _SPEnabled;
+        set {
+            _SPEnabled = value;
+            UpdateBars();
+        }
+    }
 
     public GameObject WeaponSlot;
     public GameObject OffhandSlot;
@@ -21,6 +35,8 @@ public class PlayerEntity : Entity {
     public GameObject OffhandItem;
     public GameObject ArmorItem;
 
+    protected GameObject canvas;
+
     protected Item.Type WeaponType;
     protected Item.Type OffhandType;
     protected Item.Type ArmorType;
@@ -29,7 +45,7 @@ public class PlayerEntity : Entity {
     protected bool visible = true;
     protected float flashIntervalCounter = 0.0f;
     protected float timeInvuln = 0.0f;
-    
+
     private List<GameObject> interactableList;
 
     public bool Interact() {
@@ -123,58 +139,66 @@ public class PlayerEntity : Entity {
         }
     }
 
-    public void Cast(string spell, Vector3 shotDirection) {
+    public bool Cast(string spell, Vector3 shotDirection) {
         if (!this.GetComponentsInChildren<Animator>()[0].GetCurrentAnimatorStateInfo(0).IsName("Moving")
             && !this.GetComponentsInChildren<Animator>()[0].GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
-            return;
+            return false;
         }
         Spell spellSpell = Spellbook.GetSpell(spell);
-        if (curMP < spellSpell.MPCost || curSP < spellSpell.SPCost) {
-            return;
+        if (curMP < spellSpell.MPCost * MPCost || curSP < spellSpell.SPCost * SPCost || curHP < spellSpell.HPCost) {
+            return false;
+        }
+        if ((spellSpell.MPCost > 0 && !MPEnabled) || (spellSpell.SPCost > 0 && !SPEnabled)) {
+            return false;
         }
         shotDirection = shotDirection == Vector3.zero ? new Vector3(transform.localScale.x, 0, 0) : shotDirection;
         switch (spellSpell.Type) {
             case Spell.SpellType.StaffSpell:
                 if (WeaponItem.GetComponent<Item>().ItemType != Item.Type.Staff) {
-                    return;
+                    return false;
                 }
                 if (WeaponSlot.GetComponentsInChildren<Weapon>()[0].Spell(shotDirection, this.tag, spell, () => StopDoing())) {
-                    ChangeMP(-spellSpell.MPCost);
-                    ChangeSP(-spellSpell.SPCost);
+                    ChangeHP(-spellSpell.HPCost);
+                    ChangeMP(-spellSpell.MPCost * MPCost);
+                    ChangeSP(-spellSpell.SPCost * SPCost);
                     UpdateAnimators("OnhandSpell", true);
                 }
                 break;
             case Spell.SpellType.SwordSpell:
                 if (WeaponItem.GetComponent<Item>().ItemType != Item.Type.Sword) {
-                    return;
+                    return false;
                 }
                 if (WeaponSlot.GetComponentsInChildren<Weapon>()[0].Spell(shotDirection, this.tag, spell, () => StopDoing())) {
-                    ChangeMP(-spellSpell.MPCost);
-                    ChangeSP(-spellSpell.SPCost);
+                    ChangeHP(-spellSpell.HPCost);
+                    ChangeMP(-spellSpell.MPCost * MPCost);
+                    ChangeSP(-spellSpell.SPCost * SPCost);
                     UpdateAnimators("OnhandSpell", true);
                 }
                 break;
             case Spell.SpellType.BowSpell:
                 if (WeaponItem.GetComponent<Item>().ItemType != Item.Type.Bow) {
-                    return;
+                    return false;
                 }
                 if (WeaponSlot.GetComponentsInChildren<Weapon>()[0].Spell(shotDirection, this.tag, spell, () => StopDoing())) {
-                    ChangeMP(-spellSpell.MPCost);
-                    ChangeSP(-spellSpell.SPCost);
+                    ChangeHP(-spellSpell.HPCost);
+                    ChangeMP(-spellSpell.MPCost * MPCost);
+                    ChangeSP(-spellSpell.SPCost * SPCost);
                     UpdateAnimators("BowSpell", true);
                 }
                 break;
             case Spell.SpellType.ShieldSpell:
                 if (WeaponItem.GetComponent<Item>().ItemType != Item.Type.Shield) {
-                    return;
+                    return false;
                 }
                 if (OffhandSlot.GetComponentsInChildren<Weapon>()[0].Spell(shotDirection, this.tag, spell, () => StopDoing())) {
-                    ChangeMP(-spellSpell.MPCost);
-                    ChangeSP(-spellSpell.SPCost);
+                    ChangeHP(-spellSpell.HPCost);
+                    ChangeMP(-spellSpell.MPCost * MPCost);
+                    ChangeSP(-spellSpell.SPCost * SPCost);
                     UpdateAnimators("OffhandSpell", true);
                 }
                 break;
         }
+        return true;
     }
 
     protected void UpdateAnimators() {
@@ -194,6 +218,11 @@ public class PlayerEntity : Entity {
         this.gameObject.SetActive(false);
     }
 
+    public override void Heal(DamageMetadata meta) {
+        base.Heal(meta);
+        canvas.GetComponent<UIBarDisplay>().UpdateRed(1.0f * curHP / MaxHP);
+    }
+
     public override void TakeDamage(DamageMetadata meta) {
         if (vulnerable) {
             if (meta.Damage >= 0) {
@@ -203,7 +232,7 @@ public class PlayerEntity : Entity {
                 this.GetComponent<Collider2D>().enabled = false;
             }
             base.TakeDamage(meta);
-            HPBar.GetComponent<UIBar>().ChangeSize(1.0f * curHP / MaxHP);
+            canvas.GetComponent<UIBarDisplay>().UpdateRed(1.0f * curHP / MaxHP);
         }
     }
 
@@ -214,18 +243,47 @@ public class PlayerEntity : Entity {
         }
     }
 
+    public void ChangeHP(float hp) {
+        curHP += hp;
+        DamageMetadata newMeta = new DamageMetadata((int)hp * -1, false, false);
+        if (hp < 0) {
+            GameObject newText = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+            newText.GetComponent<PopupText>().FeedDamageMetaData(newMeta, this.transform.position);
+        }
+        canvas.GetComponent<UIBarDisplay>().UpdateRed(1.0f * curHP / MaxHP);
+    }
+
     public void ChangeMP(float mp) {
         curMP += mp;
-        MPBar.GetComponent<UIBar>().ChangeSize(1.0f * curMP / MaxMP);
+        canvas.GetComponent<UIBarDisplay>().UpdateBlue(1.0f * curMP / MaxMP);
     }
 
     public void ChangeSP(float sp) {
         curSP += sp;
-        SPBar.GetComponent<UIBar>().ChangeSize(1.0f * curSP / MaxSP);
+        canvas.GetComponent<UIBarDisplay>().UpdateGreen(1.0f * curSP / MaxSP);
+    }
+
+    public void UpdateBars() {
+        int rtv = 1;
+        if (MPEnabled) {
+            rtv++;
+        }
+        if (SPEnabled) {
+            rtv++;
+        }
+        canvas.GetComponent<UIBarDisplay>().Bars = rtv;
+        canvas.GetComponent<UIBarDisplay>().DisplayMP = MPEnabled;
+        canvas.GetComponent<UIBarDisplay>().UpdateBars();
     }
 
     protected override void Start() {
+        DontDestroyOnLoad(this.gameObject);
         base.Start();
+        if (canvas == null) {
+            canvas = GameObject.FindGameObjectsWithTag("Canvas")[0];
+
+        }
+        UpdateBars();
         interactableList = new List<GameObject>();
         Instantiate(ArmorItem.GetComponent<Item>().ItemReference, ArmorSlot.transform);
         ArmorItem.GetComponent<Interactable>().Interact(this);
@@ -240,8 +298,16 @@ public class PlayerEntity : Entity {
 
     protected override void Update() {
         base.Update();
-        MPBar.GetComponent<UIBar>().ChangeSize(1.0f * curMP / MaxMP);
-        SPBar.GetComponent<UIBar>().ChangeSize(1.0f * curSP / MaxSP);
+        if (canvas == null) {
+            canvas = GameObject.FindGameObjectsWithTag("Canvas")[0];
+            UpdateBars();
+        }
+        if (MPEnabled) {
+            canvas.GetComponent<UIBarDisplay>().UpdateBlue(1.0f * curMP / MaxMP);
+        }
+        if (SPEnabled) {
+            canvas.GetComponent<UIBarDisplay>().UpdateGreen(1.0f * curSP / MaxSP);
+        }
         if (!vulnerable) {
             if (timeInvuln <= 0.0) {
                 vulnerable = true;

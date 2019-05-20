@@ -45,9 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Arcane Storm
   Type: 0
-  MPCost: 15
+  MPCost: 18
   SPCost: 0
   Cooldown: 3
   PrimarySpellDamage: 1
   PrimarySpellProjectile: {fileID: 7399508104975616548, guid: c68e7a391ee797841aaebcb619bab1a2,
     type: 3}
+  WeaponPercentDamage: 0.02

@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
-    public GameObject testPrefab;
-
     GameObject player;
     PlayerEntity playerEntity;
 
@@ -16,7 +14,7 @@ public class PlayerControl : MonoBehaviour {
         player = GameObject.FindGameObjectsWithTag("Player")[0];
         playerEntity = player.GetComponent<PlayerEntity>();
     }
-    
+
     private Vector3 FindShotDirection() {
         Vector3 direction = Vector3.zero;
         if (Input.GetKey(KeyCode.UpArrow)) {
@@ -53,43 +51,41 @@ public class PlayerControl : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 Vector3 shootingDir = FindShotDirection();
                 needToFlip = false;
-                if (shootingDir.x != 0) {
+                if (playerEntity.Cast("Arcane Storm", shootingDir) && shootingDir.x != 0) {
                     playerEntity.Flip(Math.Sign(shootingDir.x));
                 }
-                playerEntity.Cast("Arcane Storm", shootingDir);
             }
             if (Input.GetKeyDown(KeyCode.Alpha2)) {
                 Vector3 shootingDir = FindShotDirection();
                 needToFlip = false;
-                if (shootingDir.x != 0) {
+                if (playerEntity.Cast("Arcane Missiles", shootingDir) && shootingDir.x != 0) {
                     playerEntity.Flip(Math.Sign(shootingDir.x));
                 }
-                playerEntity.Cast("Arcane Missiles", shootingDir);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3)) {
                 Vector3 shootingDir = FindShotDirection();
                 needToFlip = false;
-                if (shootingDir.x != 0) {
+                if (playerEntity.Cast("Arcane Blast", shootingDir) && shootingDir.x != 0) {
                     playerEntity.Flip(Math.Sign(shootingDir.x));
                 }
-                playerEntity.Cast("Powershot", shootingDir);
             }
             if (Input.GetKeyDown(KeyCode.Alpha4)) {
                 Vector3 shootingDir = FindShotDirection();
                 needToFlip = false;
-                if (shootingDir.x != 0) {
+                if (playerEntity.Cast("Arcane Eruption", shootingDir) && shootingDir.x != 0) {
                     playerEntity.Flip(Math.Sign(shootingDir.x));
                 }
-                playerEntity.Cast("Power Strike", shootingDir);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5)) {
+                Vector3 shootingDir = FindShotDirection();
+                needToFlip = false;
+                if (playerEntity.Cast("Death and Decay", shootingDir) && shootingDir.x != 0) {
+                    playerEntity.Flip(Math.Sign(shootingDir.x));
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Space)) {
                 playerEntity.Interact();
-            }
-
-            //debug tools
-            if (Input.GetKeyDown(KeyCode.C)) {
-                PlayerStats.InventoryAddItem(testPrefab);
             }
 
             /*

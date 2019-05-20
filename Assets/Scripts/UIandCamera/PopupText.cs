@@ -38,6 +38,9 @@ public class PopupText : MonoBehaviour
         Target = tf + Random.onUnitSphere * 0.2f;
         this.GetComponent<Text>().text = text;
         this.GetComponent<Text>().fontSize = fontSize;
+        if (color == Color.black) {
+            this.GetComponent<Outline>().effectColor = Color.white;
+        }
         this.GetComponent<Text>().color = color;
     }
 

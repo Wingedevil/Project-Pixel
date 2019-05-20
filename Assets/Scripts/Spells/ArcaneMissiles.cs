@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcaneMissiles : Spell {
+public class ArcaneMissiles : WeaponSpell {
     private const int NUMBER_OF_PROJECTILES = 3;
     private int numberOfProjectiles;
     private const float INTERVAL_BETWEEN_PROJECTILES = 0.05f;
@@ -28,7 +28,7 @@ public class ArcaneMissiles : Spell {
             Vector3 newDir = Vector3.Normalize(dir + Random.insideUnitSphere * 1.0f);
             newProj.transform.Rotate(0, 0, Mathf.Rad2Deg * Mathf.Atan2(newDir.y, newDir.x));
             newProj.GetComponent<Projectile>().Direction = Vector3.Normalize(newDir);
-            newProj.GetComponent<Projectile>().Damage = PrimarySpellDamage;
+            newProj.GetComponent<Projectile>().Damage = GetDamage();
             newProj.tag = tagger;
             if (newProj.GetComponent<HomingProjectile>()) {
                 newProj.GetComponent<HomingProjectile>().TagToHome = newProj.tag == "Enemy" ? "Player" : "Enemy";

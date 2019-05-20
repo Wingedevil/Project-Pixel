@@ -46,8 +46,9 @@ MonoBehaviour:
   Name: Power Strike
   Type: 1
   MPCost: 0
-  SPCost: 10
+  SPCost: 12
   Cooldown: 1
-  PrimarySpellDamage: 15
+  PrimarySpellDamage: 3
   PrimarySpellProjectile: {fileID: 8461261467979160483, guid: 6470a0fb7f0c53640a5a17d23ac457d8,
     type: 3}
+  WeaponPercentDamage: 1.5

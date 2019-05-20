@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MPStream : MonoBehaviour {
-    public float MP_REGEN = 2.0f;
+    public float MP_REGEN = 10.0f;
 
     private PlayerEntity playerEntity;
     private int restoring;

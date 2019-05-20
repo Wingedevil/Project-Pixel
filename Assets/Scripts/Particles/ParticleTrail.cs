@@ -6,6 +6,7 @@ public class ParticleTrail : MonoBehaviour {
     public Color StartColor;
     public Color EndColor;
     public GameObject Trail;
+    public float ParticleLifeTime = 0.25f;
 
     private GameObject following;
 
@@ -20,6 +21,7 @@ public class ParticleTrail : MonoBehaviour {
             new Color(StartColor.r, StartColor.g, StartColor.b),
             new Color(EndColor.r, EndColor.g, EndColor.b)
             );
+        psMain.startLifetime = ParticleLifeTime;
     }
 
     // Update is called once per frame
@@ -28,6 +30,10 @@ public class ParticleTrail : MonoBehaviour {
     }
 
     void OnDestroy() {
-        following.GetComponent<ParticleSystem>().Stop();
+        try {
+            following.GetComponent<ParticleSystem>().Stop();
+        } catch (MissingReferenceException) {
+
+        }
     }
 }
