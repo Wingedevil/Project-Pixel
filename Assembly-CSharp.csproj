@@ -60,59 +60,60 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBlendListCamera.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBrain.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineClearShot.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineCollider.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineConfiner.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineDollyCart.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineExternalCamera.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineFollowZoom.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineFreeLook.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineMixingCamera.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachinePath.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachinePipeline.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoother.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoothPath.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineStateDrivenCamera.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineTargetGroup.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineVirtualCamera.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineBasicMultiChannelPerlin.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineComposer.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineFramingTransposer.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineGroupComposer.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineHardLockToTarget.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineHardLookAt.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineOrbitalTransposer.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachinePOV.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineSameAsFollowObject.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineTrackedDolly.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineTransposer.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\AxisState.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CameraState.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineBlend.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineBlenderSettings.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineComponentBase.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineCore.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineDebugLogger.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineExtension.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachinePathBase.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachinePropertyAttribute.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineVirtualCameraBase.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\GaussianFilter.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ICinemachineCamera.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ICinemachineComponent.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\LensSettings.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\NoiseSettings.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\Predictor.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ReflectionHelpers.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\SplineHelpers.cs" />
-    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\UnityVectorExtensions.cs" />
-    <Compile Include="Assets\Cinemachine\PostFX\CinemachinePostFX.cs" />
-    <Compile Include="Assets\Cinemachine\PostFX\CinemachinePostProcessing.cs" />
-    <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
-    <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
-    <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineBlendListCamera.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineBrain.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineClearShot.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineCollider.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineConfiner.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineDollyCart.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineExternalCamera.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineFollowZoom.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineFreeLook.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineMixingCamera.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachinePath.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachinePipeline.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoother.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoothPath.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineStateDrivenCamera.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineTargetGroup.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Behaviours\CinemachineVirtualCamera.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineBasicMultiChannelPerlin.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineComposer.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineFramingTransposer.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineGroupComposer.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineHardLockToTarget.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineHardLookAt.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineOrbitalTransposer.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachinePOV.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineSameAsFollowObject.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineTrackedDolly.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Components\CinemachineTransposer.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\AxisState.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CameraState.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachineBlend.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachineBlenderSettings.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachineComponentBase.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachineCore.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachineDebugLogger.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachineExtension.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachinePathBase.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachinePropertyAttribute.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\CinemachineVirtualCameraBase.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\GaussianFilter.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\ICinemachineCamera.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\ICinemachineComponent.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\LensSettings.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\NoiseSettings.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\Predictor.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\ReflectionHelpers.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\SplineHelpers.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Base\Runtime\Core\UnityVectorExtensions.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\PostFX\CinemachinePostFX.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\PostFX\CinemachinePostProcessing.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Timeline\CinemachineMixer.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Timeline\CinemachineShot.cs" />
+    <Compile Include="Assets\External Libraries\Cinemachine\Timeline\CinemachineTrack.cs" />
+    <Compile Include="Assets\External Libraries\SpritesOutline\SpriteOutline.cs" />
     <Compile Include="Assets\Scripts\Enemy\BasicCaster.cs" />
     <Compile Include="Assets\Scripts\Enemy\BasicEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Particles\KillParticleSystem.cs" />
     <Compile Include="Assets\Scripts\Particles\ParticleTrail.cs" />
+    <Compile Include="Assets\Scripts\Passives\Ambidexterity.cs" />
     <Compile Include="Assets\Scripts\Passives\Endure.cs" />
     <Compile Include="Assets\Scripts\Passives\EntropyAura.cs" />
     <Compile Include="Assets\Scripts\Passives\MPStream.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Assets\Scripts\Spells\ArcaneEruption.cs" />
     <Compile Include="Assets\Scripts\Spells\ArcaneMissiles.cs" />
     <Compile Include="Assets\Scripts\Spells\ArcaneStorm.cs" />
+    <Compile Include="Assets\Scripts\Spells\ArcaneWrath.cs" />
     <Compile Include="Assets\Scripts\Spells\BasicSpell.cs" />
     <Compile Include="Assets\Scripts\Spells\DeathAndDecay.cs" />
     <Compile Include="Assets\Scripts\Spells\HealingBurst.cs" />
@@ -167,9 +170,8 @@
     <Compile Include="Assets\Scripts\UIandCamera\PopupText.cs" />
     <Compile Include="Assets\Scripts\UIandCamera\UIBar.cs" />
     <Compile Include="Assets\Scripts\UIandCamera\UIBarDisplay.cs" />
-    <Compile Include="Assets\SpritesOutline\SpriteOutline.cs" />
-    <None Include="Assets\SpritesOutline\Resources\Sprite-Outline.shader" />
-    <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
+    <None Include="Assets\External Libraries\SpritesOutline\Resources\Sprite-Outline.shader" />
+    <None Include="Assets\External Libraries\Cinemachine\ReleaseNotes.txt" />
     <None Include="Assets\Scripts\Shaders\RedFlash.shader" />
     <Reference Include="Unity.2D.Tilemap.Extras.Editor">
       <HintPath>D:/Unity/Projects/Project Pixel/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
@@ -393,9 +395,6 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
-    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>D:/Unity/Projects/Project Pixel/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>D:/Unity/Projects/Project Pixel/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -404,6 +403,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>D:/Unity/Projects/Project Pixel/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>D:/Unity/Projects/Project Pixel/Assets/External Libraries/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

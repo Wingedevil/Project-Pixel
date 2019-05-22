@@ -73,8 +73,14 @@ MonoBehaviour:
   ActivateDistance: 2
   AttackCooldown: 2
   Player: {fileID: 0}
-  Drops: []
-  DropChances: []
+  Drops:
+  - {fileID: 3882708533400135496, guid: fbd329ebfe901994b9af381d51fd5359, type: 3}
+  - {fileID: 4444456016121958214, guid: 976479d69a3b14d4f833d4c223ad1107, type: 3}
+  - {fileID: 4437841399107903079, guid: 2c86c16adab2cdc48a897564d33e63ca, type: 3}
+  DropChances:
+  - 0.05
+  - 0.015
+  - 0.03
   MoveThreshold: 3
   AlertDistance: 2
   DistanceToPlayer: 2

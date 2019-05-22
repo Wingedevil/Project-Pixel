@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1814300997204735376}
-  - component: {fileID: 1814300997204735377}
   - component: {fileID: 1814300997204736622}
   - component: {fileID: 1814300997204736623}
+  - component: {fileID: 5985629809083689575}
   m_Layer: 0
   m_Name: wp_fistsoffury
   m_TagString: Untagged
@@ -33,7 +33,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1814300997204735377
+--- !u!95 &1814300997204736622
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814300997204735379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 023849b4ab53868478cc1bf978d35721, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1814300997204736623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814300997204735379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxMP: 0
+  MaxSP: 0
+  MPCost: 1
+  SPCost: 1
+  PhysicalArmor: 0
+  PhysicalReduction: 0
+  MagicalResistance: 1
+  AttackSpeed: 2.5
+  SpellDamageAmp: 1
+  WeaponAttack: 5
+  IsMelee: 1
+  Projectile: {fileID: 1553578109575866839, guid: be192de8b7bfa4648a4f0f70a75083fe,
+    type: 3}
+  ProjectileScale: 1
+--- !u!212 &5985629809083689575
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,7 +114,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -81,42 +126,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1814300997204736622
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814300997204735379}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 023849b4ab53868478cc1bf978d35721, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1814300997204736623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814300997204735379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PhysicalArmor: 0
-  PhysicalReduction: 0
-  MagicalResistance: 1
-  WeaponAttack: 5
-  IsMelee: 1
-  Projectile: {fileID: 1553578109575866839, guid: be192de8b7bfa4648a4f0f70a75083fe,
-    type: 3}
-  ProjectileScale: 1

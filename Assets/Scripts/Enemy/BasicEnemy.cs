@@ -42,7 +42,7 @@ public class BasicEnemy : Enemy {
         }
 
         if (Vector3.Magnitude(aiBase.desiredVelocity) < 0.01f) {
-            //this.GetComponent<Rigidbody2D>().velocity = Vector3.zero; 
+            //this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             UpdateAnimators("Moving", false);
         } else {
             //this.GetComponent<Rigidbody2D>().velocity = MoveSpeed * directionToPlayer;

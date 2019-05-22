@@ -112,12 +112,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxMP: 0
+  MaxSP: 0
+  MPCost: 1
+  SPCost: 1
   PhysicalArmor: 0
   PhysicalReduction: 0
   MagicalResistance: 1
-  SpellDamageAmp: 1.2
-  MPCost: 1
-  SPCost: 1
+  AttackSpeed: 1
+  SpellDamageAmp: 1.03
   WeaponAttack: 8
   IsMelee: 0
   Projectile: {fileID: 8089425373408422431, guid: ce307567b97d43a46b2b30484ce0dcf3,

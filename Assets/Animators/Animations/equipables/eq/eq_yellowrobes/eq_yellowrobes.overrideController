@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: eq_yellowrobes
+  m_Controller: {fileID: 9100000, guid: b758fba6cb7098f4bb8ae1f9d681f9a3, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4c508066f577ee141936b34aaee9b153, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6b160931ad69b3843aa8d42c51208ecd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f3e3cd28da345a6429c17fbd77c99352, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cb4169c4303f9d3439ecd7dd46833c55, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 776344ee6597c39478c76422a3110ee9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 33e1f94ea7ed2a040b6f3754e1021afa, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 18aa7e9a9c553a746a6b8ce5e009c943, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 828e57dae6a12e9499bc68fbb945c880, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 51dd698502d92a44cbad23fd6e6c643f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5adebde8e5cf3a84695d0a6ac5c28028, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 26c4fb622d773084288f837a16acca27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0ba7de3d597c3d7438a4de2feac35ff8, type: 2}

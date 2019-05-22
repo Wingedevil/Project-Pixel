@@ -118,9 +118,11 @@ MonoBehaviour:
   IsPhysical: 1
   IsMagical: 0
   Damage: 2
-  lifeTime: 0.2
+  lifeTime: 0.325
   Speed: 2
   Direction: {x: 0, y: 0, z: 0}
+  DieParticleSystem: {fileID: 0}
+  DieParticleColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &3838118392502209750
 BoxCollider2D:
   m_ObjectHideFlags: 0

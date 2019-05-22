@@ -20,12 +20,13 @@ public class Item : Interactable {
         try {
             e.MaxMP += ItemReference.GetComponent<Equipable>().MaxMP;
             e.MaxSP += ItemReference.GetComponent<Equipable>().MaxSP;
+            e.MPCost *= ItemReference.GetComponent<Equipable>().MPCost;
+            e.SPCost *= ItemReference.GetComponent<Equipable>().SPCost;
             e.PhysicalArmor += ItemReference.GetComponent<Equipable>().PhysicalArmor;
             e.PhysicalReduction += ItemReference.GetComponent<Equipable>().PhysicalReduction;
             e.MagicalResistance *= ItemReference.GetComponent<Equipable>().MagicalResistance;
+            e.AttackSpeed *= ItemReference.GetComponent<Equipable>().AttackSpeed;
             e.SpellDamageAmp *= ItemReference.GetComponent<Equipable>().SpellDamageAmp;
-            e.MPCost *= ItemReference.GetComponent<Equipable>().MPCost;
-            e.SPCost *= ItemReference.GetComponent<Equipable>().SPCost;
         } catch (Exception ex) {
             Debug.Log(ex);
         }
@@ -39,12 +40,13 @@ public class Item : Interactable {
             e.MaxSP -= ItemReference.GetComponent<Equipable>().MaxSP;
             e.curSP = e.curSP > e.MaxSP ? e.MaxSP : e.curSP;
 
+            e.MPCost /= ItemReference.GetComponent<Equipable>().MPCost;
+            e.SPCost /= ItemReference.GetComponent<Equipable>().SPCost;
             e.PhysicalArmor -= ItemReference.GetComponent<Equipable>().PhysicalArmor;
             e.PhysicalReduction -= ItemReference.GetComponent<Equipable>().PhysicalReduction;
             e.MagicalResistance /= ItemReference.GetComponent<Equipable>().MagicalResistance;
+            e.AttackSpeed /= ItemReference.GetComponent<Equipable>().AttackSpeed;
             e.SpellDamageAmp /= ItemReference.GetComponent<Equipable>().SpellDamageAmp;
-            e.MPCost /= ItemReference.GetComponent<Equipable>().MPCost;
-            e.SPCost /= ItemReference.GetComponent<Equipable>().SPCost;
         } catch (Exception ex) {
             Debug.Log(ex);
         }

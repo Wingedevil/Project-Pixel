@@ -50,23 +50,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 40
+  curHP: 0
   MaxSP: 0
+  curSP: 0
   MaxMP: 0
+  curMP: 0
   PhysicalArmor: 0
   PhysicalReduction: 1
   MagicalResistance: 1
+  SpellDamageAmp: 1
+  MPCost: 1
+  SPCost: 1
   popupText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
     type: 3}
   offHandCanAttack: 0
   AttackSpeed: 1
   MoveSpeed: 1
-  Corpse: {fileID: 335458675488571833, guid: 2b31fdf53001d10458c883eb5d255385, type: 3}
+  Corpse: {fileID: 2092439006926997480, guid: 62c39f1fd1ddf3e48868750835761197, type: 3}
   RejectionRadius: 1
   ActivateDistance: 5
   AttackCooldown: 2
   Player: {fileID: 0}
-  Drops: []
-  DropChances: []
+  Drops:
+  - {fileID: 7426496591620928960, guid: 3179532a4f31a034685ce5408feee2eb, type: 3}
+  - {fileID: 9165940227411367676, guid: 3ccc206183316ab4b88443506b6c6fcd, type: 3}
+  DropChances:
+  - 0.03
+  - 0.02
   MoveThreshold: 0.5
   AlertDistance: 2
   DistanceToPlayer: 0.7
@@ -297,9 +307,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxMP: 0
+  MaxSP: 0
   PhysicalArmor: 0
   PhysicalReduction: 0
   MagicalResistance: 1
+  SpellDamageAmp: 1
+  MPCost: 1
+  SPCost: 1
   WeaponAttack: 15
   IsMelee: 1
   Projectile: {fileID: 3838118392502209751, guid: 698b284111ab2a2429ccf99d6e471caf,

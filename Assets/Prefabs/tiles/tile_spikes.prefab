@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7152998297023801934}
   m_Layer: 0
   m_Name: tile_spikes
-  m_TagString: Finish
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

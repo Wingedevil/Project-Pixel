@@ -46,8 +46,8 @@ public class EnemyGroupSpawner : MonoBehaviour {
         psMain.startColor = Color.white;
 
         if (SpawnHealth) {
-            go.GetComponent<Enemy>().Drops = new GameObject[] { HealthPotion };
-            go.GetComponent<Enemy>().DropChances = new float[] { HealthPotionDropRate };
+            go.GetComponent<Enemy>().Drops.Add(HealthPotion);
+            go.GetComponent<Enemy>().DropChances.Add(HealthPotionDropRate);
         }
     }
 }

@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour {
 
     private Vector3 FindShotDirection() {
         Vector3 direction = Vector3.zero;
+        
         if (Input.GetKey(KeyCode.UpArrow)) {
             direction += new Vector3(0, 1, 0);
         }
@@ -28,6 +29,22 @@ public class PlayerControl : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.RightArrow)) {
             direction += new Vector3(1, 0, 0);
+        }
+
+        if (direction == Vector3.zero) {
+            GameObject closest = null;
+            float closestDistance = 4.0f;
+            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+                if (enemy.GetComponent<Entity>()) {
+                    if (Vector3.Distance(player.transform.position, enemy.transform.position) < closestDistance) {
+                        closestDistance = Vector3.Distance(player.transform.position, enemy.transform.position);
+                        closest = enemy;
+                    }
+                }
+            }
+            if (closest) {
+                direction = Vector3.Normalize(closest.transform.position - player.transform.position);
+            }
         }
 
         return direction;
@@ -80,6 +97,13 @@ public class PlayerControl : MonoBehaviour {
                 Vector3 shootingDir = FindShotDirection();
                 needToFlip = false;
                 if (playerEntity.Cast("Death and Decay", shootingDir) && shootingDir.x != 0) {
+                    playerEntity.Flip(Math.Sign(shootingDir.x));
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha6)) {
+                Vector3 shootingDir = FindShotDirection();
+                needToFlip = false;
+                if (playerEntity.Cast("Arcane Wrath", shootingDir) && shootingDir.x != 0) {
                     playerEntity.Flip(Math.Sign(shootingDir.x));
                 }
             }

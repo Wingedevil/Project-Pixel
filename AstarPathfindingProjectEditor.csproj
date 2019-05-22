@@ -60,26 +60,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AIBaseEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AILerpEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AnimationLinkEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AstarPathEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AstarUpdateChecker.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AstarUpdateWindow.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\CustomGraphEditorAttribute.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\GraphEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\GridGeneratorEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\NavMeshGeneratorEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\PointGeneratorEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphUpdateSceneEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyAIPathEditor2.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyEditorHelper2.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\ModifierEditors\RaycastModifierEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\ModifierEditors\SmoothModifierEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\SeekerEditor.cs" />
-    <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />
-    <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
-    <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\AIBaseEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\AILerpEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\AnimationLinkEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\AstarPathEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\AstarUpdateChecker.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\AstarUpdateWindow.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\CustomGraphEditorAttribute.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\GraphEditors\GraphEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\GraphEditors\GridGeneratorEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\GraphEditors\NavMeshGeneratorEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\GraphEditors\PointGeneratorEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\GraphUpdateSceneEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\Legacy\LegacyAIPathEditor2.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\Legacy\LegacyEditorHelper2.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\ModifierEditors\RaycastModifierEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\ModifierEditors\SmoothModifierEditor.cs" />
+    <Compile Include="Assets\External Libraries\AstarPathfindingProject\Editor\SeekerEditor.cs" />
+    <None Include="Assets\External Libraries\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />
+    <None Include="Assets\External Libraries\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
+    <None Include="Assets\External Libraries\AstarPathfindingProject\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -320,9 +320,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>D:/Unity/Projects/Project Pixel/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>D:/Unity/Projects/Project Pixel/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -337,6 +334,9 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>D:/Unity/Projects/Project Pixel/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>D:/Unity/Projects/Project Pixel/Assets/External Libraries/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

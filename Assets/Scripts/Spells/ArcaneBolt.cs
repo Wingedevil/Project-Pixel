@@ -11,7 +11,7 @@ public class ArcaneBolt : WeaponSpell {
         GameObject newProj = Instantiate(PrimarySpellProjectile, tf.position + DISPLACEMENT, Quaternion.identity);
         newProj.transform.Rotate(0, 0, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x));
         newProj.GetComponent<Projectile>().Direction = dir;
-        newProj.GetComponent<Projectile>().Damage = GetWeaponDamage();
+        newProj.GetComponent<Projectile>().Damage = GetDamage();
         newProj.tag = tag;
     }
 }

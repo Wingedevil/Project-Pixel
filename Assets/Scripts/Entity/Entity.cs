@@ -24,12 +24,13 @@ public class Entity : MonoBehaviour {
     public float SPCost = 1.0f;
 
     public GameObject popupText;
-    public bool offHandCanAttack;
+    public bool Ambidextrous;
     public float AttackSpeed = 1.0f;
     public float MoveSpeed = 1.0f;
     public GameObject Corpse;
 
-    
+
+    protected bool offHandCanAttack;
     private bool alive = true;
 
     public virtual DamageMetadata DamageReduction(DamageMetadata meta) {
@@ -142,6 +143,8 @@ public class Entity : MonoBehaviour {
         foreach (Animator a in childrenAnimators) {
             if (a.parameterCount > 1) {
                 a.SetBool(var, val);
+                a.SetFloat("AttackSpeed", this.AttackSpeed);
+                a.SetFloat("MoveSpeed", this.MoveSpeed);
             }
         }
     }

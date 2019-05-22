@@ -50,11 +50,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 15
+  curHP: 0
   MaxSP: 0
+  curSP: 0
   MaxMP: 0
+  curMP: 0
   PhysicalArmor: 0
   PhysicalReduction: 0
   MagicalResistance: 1
+  SpellDamageAmp: 1
+  MPCost: 1
+  SPCost: 1
   popupText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
     type: 3}
   offHandCanAttack: 0
@@ -65,8 +71,10 @@ MonoBehaviour:
   ActivateDistance: 5
   AttackCooldown: 1
   Player: {fileID: 0}
-  Drops: []
-  DropChances: []
+  Drops:
+  - {fileID: 7412990295967238600, guid: f7d523f2f7e3e604894bb0cb318d42a0, type: 3}
+  DropChances:
+  - 0.02
   MoveThreshold: 0.5
   AlertDistance: 2
   DistanceToPlayer: 0.7
@@ -297,9 +305,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4866f2b5ebb309643bc2f9ef8c2339d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxMP: 0
+  MaxSP: 0
   PhysicalArmor: 0
   PhysicalReduction: 0
   MagicalResistance: 1
+  SpellDamageAmp: 1
+  MPCost: 1
+  SPCost: 1
   WeaponAttack: 6
   IsMelee: 1
   Projectile: {fileID: 3838118392502209751, guid: 698b284111ab2a2429ccf99d6e471caf,

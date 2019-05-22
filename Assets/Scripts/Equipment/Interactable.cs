@@ -8,7 +8,7 @@ public abstract class Interactable : MonoBehaviour {
 
     // Start is called before the first frame update
     protected virtual void Start() {
-        this.GetComponent<SpriteRenderer>().sortingOrder = -9;
+        this.GetComponent<SpriteRenderer>().sortingOrder = -2;
     }
 
     // Update is called once per frame

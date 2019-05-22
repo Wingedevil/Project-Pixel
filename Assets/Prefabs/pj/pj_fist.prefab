@@ -98,7 +98,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.08
 --- !u!114 &7050554664057250308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +118,8 @@ MonoBehaviour:
   lifeTime: 0.05
   Speed: 3
   Direction: {x: 0, y: 0, z: 0}
+  DieParticleSystem: {fileID: 0}
+  DieParticleColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!50 &8113574257257784246
 Rigidbody2D:
   serializedVersion: 4

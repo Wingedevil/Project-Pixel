@@ -10,15 +10,15 @@ public abstract class Enemy : Entity {
     public float ActivateDistance = 5.0f;
     public float AttackCooldown = 5.0f;
     public GameObject Player;
-    public GameObject[] Drops;
-    public float[] DropChances;
+    public List<GameObject> Drops;
+    public List<float> DropChances;
 
     protected float CurrentAttackCooldown;
 
     protected override void Die() {
-        for (int i = 0; i < DropChances.Length; i++) {
+        for (int i = 0; i < DropChances.Count; i++) {
             if (UnityEngine.Random.Range(0f, 1f) <= DropChances[i]) {
-                Instantiate(Drops[i], this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -2;
+                Instantiate(Drops[i], this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -3;
             }
         }
         base.Die();

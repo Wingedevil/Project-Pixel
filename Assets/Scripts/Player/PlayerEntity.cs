@@ -127,6 +127,12 @@ public class PlayerEntity : Entity {
                         break;
                 }
                 UpdateAnimators();
+                if (OffhandItem.GetComponent<Item>().Name == "Fists of Fury"
+                    && WeaponItem.GetComponent<Item>().Name != "Fists of Fury") {
+                    offHandCanAttack = false;
+                } else {
+                    offHandCanAttack = Ambidextrous;
+                }
                 return true;
             } else {
                 interactable.GetComponent<Interactable>().Interact(this);
@@ -294,6 +300,11 @@ public class PlayerEntity : Entity {
         Instantiate(OffhandItem.GetComponent<Item>().ItemReference, OffhandSlot.transform);
         OffhandItem.GetComponent<Interactable>().Interact(this);
         OffhandSlot.GetComponentsInChildren<SpriteRenderer>()[0].sortingOrder = 4;
+
+        if (OffhandItem.GetComponent<Item>().Name == "Fists of Fury"
+            && WeaponItem.GetComponent<Item>().Name == "Fists of Fury") {
+            offHandCanAttack = true;
+        }
     }
 
     protected override void Update() {
@@ -302,6 +313,7 @@ public class PlayerEntity : Entity {
             canvas = GameObject.FindGameObjectsWithTag("Canvas")[0];
             UpdateBars();
         }
+        canvas.GetComponent<UIBarDisplay>().UpdateRed(1.0f * curHP / MaxHP);
         if (MPEnabled) {
             canvas.GetComponent<UIBarDisplay>().UpdateBlue(1.0f * curMP / MaxMP);
         }
