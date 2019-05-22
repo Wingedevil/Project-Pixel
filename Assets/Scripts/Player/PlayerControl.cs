@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
+    public bool UseMouseToAttack = true;
+
     GameObject player;
     PlayerEntity playerEntity;
 
@@ -17,33 +19,37 @@ public class PlayerControl : MonoBehaviour {
 
     private Vector3 FindShotDirection() {
         Vector3 direction = Vector3.zero;
-        
-        if (Input.GetKey(KeyCode.UpArrow)) {
-            direction += new Vector3(0, 1, 0);
-        }
-        if (Input.GetKey(KeyCode.DownArrow)) {
-            direction += new Vector3(0, -1, 0);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            direction += new Vector3(-1, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            direction += new Vector3(1, 0, 0);
-        }
+        if (UseMouseToAttack) {
+            Vector3 target = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+            direction = Vector3.Normalize((Vector2)target - (Vector2)player.transform.position - new Vector2(0, -5f / 16f));
+        } else {
+            if (Input.GetKey(KeyCode.UpArrow)) {
+                direction += new Vector3(0, 1, 0);
+            }
+            if (Input.GetKey(KeyCode.DownArrow)) {
+                direction += new Vector3(0, -1, 0);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                direction += new Vector3(-1, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.RightArrow)) {
+                direction += new Vector3(1, 0, 0);
+            }
 
-        if (direction == Vector3.zero) {
-            GameObject closest = null;
-            float closestDistance = 4.0f;
-            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
-                if (enemy.GetComponent<Entity>()) {
-                    if (Vector3.Distance(player.transform.position, enemy.transform.position) < closestDistance) {
-                        closestDistance = Vector3.Distance(player.transform.position, enemy.transform.position);
-                        closest = enemy;
+            if (direction == Vector3.zero) {
+                GameObject closest = null;
+                float closestDistance = 4.0f;
+                foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+                    if (enemy.GetComponent<Entity>()) {
+                        if (Vector3.Distance(player.transform.position, enemy.transform.position) < closestDistance) {
+                            closestDistance = Vector3.Distance(player.transform.position, enemy.transform.position);
+                            closest = enemy;
+                        }
                     }
                 }
-            }
-            if (closest) {
-                direction = Vector3.Normalize(closest.transform.position - player.transform.position);
+                if (closest) {
+                    direction = Vector3.Normalize(closest.transform.position - player.transform.position);
+                }
             }
         }
 
@@ -61,7 +67,14 @@ public class PlayerControl : MonoBehaviour {
             }
 
             bool needToFlip = true;
-            if (Input.GetKey(KeyCode.E)) {
+            if (UseMouseToAttack && Input.GetKey(KeyCode.Mouse0)) {
+                Vector3 shootingDir = FindShotDirection();
+                needToFlip = false;
+                if (shootingDir.x != 0) {
+                    playerEntity.Flip(Math.Sign(shootingDir.x));
+                }
+                playerEntity.Attack(shootingDir);
+            } else if (!UseMouseToAttack && Input.GetKey(KeyCode.E)) {
                 Vector3 shootingDir = FindShotDirection();
                 needToFlip = false;
                 if (shootingDir.x != 0) {

@@ -22,7 +22,6 @@ public class LoadPlayer : MonoBehaviour {
         if (File.Exists(destination)) {
             file = File.OpenRead(destination);
         } else {
-            Debug.Log("File not found");
             return;
         }
 
@@ -47,6 +46,6 @@ public class LoadPlayer : MonoBehaviour {
         //playerEntity.ArmorItem = Instantiate(Resources.Load<GameObject>("Prefabs/pickups/eq/" + data.PlayerArmorItem), playerEntity.ArmorSlot.transform);
         //playerEntity.ArmorItem.SetActive(false);
 
-        //playerEntity.EquipItems();
+        //playerEntity.InstantiateItems();
     }
 }

@@ -16,6 +16,11 @@ public class Item : Interactable {
     public Type ItemType;
     public GameObject ItemReference;
 
+    protected override void Start() {
+        base.Start();
+        this.GetComponent<SpriteRenderer>().sortingOrder = -3;
+    }
+
     public override void Interact(Entity e) {
         try {
             e.MaxMP += ItemReference.GetComponent<Equipable>().MaxMP;

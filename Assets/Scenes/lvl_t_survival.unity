@@ -6005,6 +6005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d1254f1ab20694b9f6c9e4c6a615b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseMouseToAttack: 1
 --- !u!4 &942757721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9103744610999654962, guid: ee9bd980f86c44c4fa51479040a7180a,
