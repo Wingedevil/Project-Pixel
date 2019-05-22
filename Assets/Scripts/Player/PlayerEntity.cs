@@ -57,82 +57,7 @@ public class PlayerEntity : Entity {
             GameObject interactable = interactableList[0];
             interactableList.RemoveAt(0);
             if (interactable.GetComponent<Item>() != null) {
-                switch (interactable.GetComponent<Item>().ItemType) {
-                    case Item.Type.Armor:
-                        Instantiate(ArmorItem, this.transform.position, Quaternion.identity).SetActive(true);
-                        foreach (Transform child in ArmorSlot.transform) {
-                            GameObject.Destroy(child.gameObject);
-                        }
-                        Instantiate(interactable.GetComponent<Item>().ItemReference, ArmorSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 2;
-                        ArmorItem.GetComponent<Interactable>().Uninteract(this);
-                        ArmorItem = Instantiate(interactable, ArmorSlot.transform);
-                        ArmorItem.SetActive(false);
-                        ArmorItem.transform.position = Vector3.zero;
-                        GameObject newTextA = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
-                        newTextA.GetComponent<PopupText>().Equip(ArmorItem.GetComponent<Item>(), this.transform.position);
-                        ArmorType = interactable.GetComponent<Item>().ItemType;
-                        interactable.GetComponent<Interactable>().Interact(this);
-                        Destroy(interactable);
-                        break;
-                    case Item.Type.Shield:
-                        Instantiate(OffhandItem, this.transform.position, Quaternion.identity).SetActive(true);
-                        foreach (Transform child in OffhandSlot.transform) {
-                            GameObject.Destroy(child.gameObject);
-                        }
-                        Instantiate(interactable.GetComponent<Item>().ItemReference, OffhandSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 4;
-                        OffhandItem.GetComponent<Interactable>().Uninteract(this);
-                        OffhandItem = Instantiate(interactable, OffhandSlot.transform);
-                        OffhandItem.SetActive(false);
-                        OffhandItem.transform.position = Vector3.zero;
-                        GameObject newTextO = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
-                        newTextO.GetComponent<PopupText>().Equip(OffhandItem.GetComponent<Item>(), this.transform.position);
-                        OffhandType = interactable.GetComponent<Item>().ItemType;
-                        interactable.GetComponent<Interactable>().Interact(this);
-                        Destroy(interactable);
-                        break;
-                    case Item.Type.Bow:
-                        Instantiate(WeaponItem, this.transform.position, Quaternion.identity).SetActive(true);
-                        foreach (Transform child in WeaponSlot.transform) {
-                            GameObject.Destroy(child.gameObject);
-                        }
-                        Instantiate(interactable.GetComponent<Item>().ItemReference, WeaponSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 3;
-                        WeaponItem.GetComponent<Interactable>().Uninteract(this);
-                        WeaponItem = Instantiate(interactable, WeaponSlot.transform);
-                        WeaponItem.SetActive(false);
-                        WeaponItem.transform.position = Vector3.zero;
-                        GameObject newTextB = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
-                        newTextB.GetComponent<PopupText>().Equip(WeaponItem.GetComponent<Item>(), this.transform.position);
-                        WeaponType = Item.Type.Bow;
-                        interactable.GetComponent<Interactable>().Interact(this);
-                        Destroy(interactable);
-                        break;
-                    case Item.Type.Staff:
-                    case Item.Type.Sword:
-                        Instantiate(WeaponItem, this.transform.position, Quaternion.identity).SetActive(true);
-                        foreach (Transform child in WeaponSlot.transform) {
-                            GameObject.Destroy(child.gameObject);
-                        }
-                        Instantiate(interactable.GetComponent<Item>().ItemReference, WeaponSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 3;
-                        WeaponItem.GetComponent<Interactable>().Uninteract(this);
-                        WeaponItem = Instantiate(interactable, WeaponSlot.transform);
-                        WeaponItem.SetActive(false);
-                        WeaponItem.transform.position = Vector3.zero;
-                        GameObject newTextTR = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
-                        newTextTR.GetComponent<PopupText>().Equip(WeaponItem.GetComponent<Item>(), this.transform.position);
-                        WeaponType = interactable.GetComponent<Item>().ItemType;
-                        interactable.GetComponent<Interactable>().Interact(this);
-                        Destroy(interactable);
-                        break;
-                    default:
-                        break;
-                }
-                UpdateAnimators();
-                if (OffhandItem.GetComponent<Item>().Name == "Fists of Fury"
-                    && WeaponItem.GetComponent<Item>().Name != "Fists of Fury") {
-                    offHandCanAttack = false;
-                } else {
-                    offHandCanAttack = Ambidextrous;
-                }
+                EquipItem(interactable);
                 return true;
             } else {
                 interactable.GetComponent<Interactable>().Interact(this);
@@ -142,6 +67,107 @@ public class PlayerEntity : Entity {
             //no item underneath player
             Debug.Log(e);
             return false;
+        }
+    }
+
+    public void EquipItem(GameObject item, bool instantiate = true, bool popUp = true) {
+        switch (item.GetComponent<Item>().ItemType) {
+            case Item.Type.Armor:
+                if (instantiate) {
+                    Instantiate(ArmorItem, this.transform.position, Quaternion.identity).SetActive(true);
+                }
+                foreach (Transform child in ArmorSlot.transform) {
+                    GameObject.Destroy(child.gameObject);
+                }
+                Instantiate(item.GetComponent<Item>().ItemReference, ArmorSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 2;
+                item.GetComponent<Interactable>().Interact(this);
+                ArmorItem.GetComponent<Interactable>().Uninteract(this);
+                ArmorItem = Instantiate(item, ArmorSlot.transform);
+                ArmorItem.SetActive(false);
+                ArmorItem.transform.position = Vector3.zero;
+                if (popUp) {
+                    GameObject newTextA = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+                    newTextA.GetComponent<PopupText>().Equip(ArmorItem.GetComponent<Item>(), this.transform.position);
+                }
+                ArmorType = item.GetComponent<Item>().ItemType;
+                Destroy(item);
+                break;
+            case Item.Type.Shield:
+                if (instantiate) {
+                    Instantiate(OffhandItem, this.transform.position, Quaternion.identity).SetActive(true);
+                }
+                foreach (Transform child in OffhandSlot.transform) {
+                    GameObject.Destroy(child.gameObject);
+                }
+                Instantiate(item.GetComponent<Item>().ItemReference, OffhandSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 4;
+                item.GetComponent<Interactable>().Interact(this);
+                OffhandItem.GetComponent<Interactable>().Uninteract(this);
+                OffhandItem = Instantiate(item, OffhandSlot.transform);
+                OffhandItem.SetActive(false);
+                OffhandItem.transform.position = Vector3.zero;
+                if (popUp) {
+                    GameObject newTextO = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+                    newTextO.GetComponent<PopupText>().Equip(OffhandItem.GetComponent<Item>(), this.transform.position);
+                }
+                OffhandType = item.GetComponent<Item>().ItemType;
+                Destroy(item);
+                break;
+            case Item.Type.Bow:
+                if (instantiate) {
+                    Instantiate(WeaponItem, this.transform.position, Quaternion.identity).SetActive(true);
+                }
+                foreach (Transform child in WeaponSlot.transform) {
+                    GameObject.Destroy(child.gameObject);
+                }
+                Instantiate(item.GetComponent<Item>().ItemReference, WeaponSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 3;
+                item.GetComponent<Interactable>().Interact(this);
+                WeaponItem.GetComponent<Interactable>().Uninteract(this);
+                WeaponItem = Instantiate(item, WeaponSlot.transform);
+                WeaponItem.SetActive(false);
+                WeaponItem.transform.position = Vector3.zero;
+                if (popUp) {
+                    GameObject newTextB = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+                    newTextB.GetComponent<PopupText>().Equip(WeaponItem.GetComponent<Item>(), this.transform.position);
+                }
+                WeaponType = Item.Type.Bow;
+                Destroy(item);
+                break;
+            case Item.Type.Staff:
+            case Item.Type.Sword:
+                if (instantiate) {
+                    Instantiate(WeaponItem, this.transform.position, Quaternion.identity).SetActive(true);
+                }
+                foreach (Transform child in WeaponSlot.transform) {
+                    GameObject.Destroy(child.gameObject);
+                }
+                Instantiate(item.GetComponent<Item>().ItemReference, WeaponSlot.transform).GetComponent<SpriteRenderer>().sortingOrder = 3;
+                item.GetComponent<Interactable>().Interact(this);
+                WeaponItem.GetComponent<Interactable>().Uninteract(this);
+                WeaponItem = Instantiate(item, WeaponSlot.transform);
+                WeaponItem.SetActive(false);
+                WeaponItem.transform.position = Vector3.zero;
+                if (popUp) {
+                    GameObject newTextTR = Instantiate(popupText, GameObject.FindGameObjectsWithTag("Canvas")[0].transform);
+                    newTextTR.GetComponent<PopupText>().Equip(WeaponItem.GetComponent<Item>(), this.transform.position);
+                }
+                WeaponType = item.GetComponent<Item>().ItemType;
+                Destroy(item);
+                break;
+            default:
+                break;
+        }
+        UpdateAnimators();
+        if (OffhandItem.GetComponent<Item>().Name == "Fists of Fury"
+            && WeaponItem.GetComponent<Item>().Name != "Fists of Fury") {
+            offHandCanAttack = false;
+        } else {
+            offHandCanAttack = Ambidextrous;
+        }
+
+        if (!instantiate && !popUp) {
+            curHP = MaxHP;
+            curMP = MaxMP;
+            curSP = MaxSP;
         }
     }
 
@@ -283,7 +309,7 @@ public class PlayerEntity : Entity {
     }
 
     protected override void Start() {
-        DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
         base.Start();
         if (canvas == null) {
             canvas = GameObject.FindGameObjectsWithTag("Canvas")[0];
@@ -291,6 +317,15 @@ public class PlayerEntity : Entity {
         }
         UpdateBars();
         interactableList = new List<GameObject>();
+        InstantiateItems();
+
+        if (OffhandItem.GetComponent<Item>().Name == "Fists of Fury"
+            && WeaponItem.GetComponent<Item>().Name == "Fists of Fury") {
+            offHandCanAttack = true;
+        }
+    }
+
+    public void InstantiateItems() {
         Instantiate(ArmorItem.GetComponent<Item>().ItemReference, ArmorSlot.transform);
         ArmorItem.GetComponent<Interactable>().Interact(this);
         ArmorSlot.GetComponentsInChildren<SpriteRenderer>()[0].sortingOrder = 2;
@@ -300,11 +335,6 @@ public class PlayerEntity : Entity {
         Instantiate(OffhandItem.GetComponent<Item>().ItemReference, OffhandSlot.transform);
         OffhandItem.GetComponent<Interactable>().Interact(this);
         OffhandSlot.GetComponentsInChildren<SpriteRenderer>()[0].sortingOrder = 4;
-
-        if (OffhandItem.GetComponent<Item>().Name == "Fists of Fury"
-            && WeaponItem.GetComponent<Item>().Name == "Fists of Fury") {
-            offHandCanAttack = true;
-        }
     }
 
     protected override void Update() {

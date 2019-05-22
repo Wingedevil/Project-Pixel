@@ -7,6 +7,7 @@ public class Down : Interactable {
     public string NextLevel;
 
     public override void Interact(Entity e) {
+        e.GetComponent<SavePlayer>().SaveFile();
         SceneManager.LoadScene(NextLevel);
     }
 

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 704827ce6fc9f1543a64f2dd55259c48
+  - enabled: 1
     path: Assets/Scenes/lvl_0.unity
     guid: 4c82bdcb0cdddba48875e3383f79c065
   - enabled: 0
@@ -14,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/lvl_t_survival.unity
     guid: 7933dafe2c9d5d545999bddef6ac2c44
+  - enabled: 1
+    path: Assets/Scenes/MissionSelect.unity
+    guid: 8e71fc627d94e3a4eaa10e8a10827dae
   m_configObjects: {}

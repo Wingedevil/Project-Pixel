@@ -53,6 +53,13 @@ public class PlayerControl : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.anyKey) {
+            if (Input.GetKeyDown(KeyCode.O)) {
+                playerEntity.GetComponent<SavePlayer>().SaveFile();
+            }
+            if (Input.GetKeyDown(KeyCode.P)) {
+                playerEntity.GetComponent<LoadPlayer>().LoadFile();
+            }
+
             bool needToFlip = true;
             if (Input.GetKey(KeyCode.E)) {
                 Vector3 shootingDir = FindShotDirection();
