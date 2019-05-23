@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MissionSelect.unity
     guid: 8e71fc627d94e3a4eaa10e8a10827dae
+  - enabled: 1
+    path: Assets/Scenes/BasicUI.unity
+    guid: b70dcbc3980900943a41c8dffe33b4a1
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: b46d0b81881ffcb4887389b9b09e08a3
   m_configObjects: {}

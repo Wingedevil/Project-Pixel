@@ -340,7 +340,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 761169100}
-        m_MethodName: LoadMission
+        m_MethodName: BasicLoadMission
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 1505960558}
   - component: {fileID: 1505960561}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: T Survival
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -726,6 +726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mission: lvl_t_survival
+  BasicUI: BasicUI
+  AdditionalUI: []
 --- !u!212 &1505960559
 SpriteRenderer:
   m_ObjectHideFlags: 0

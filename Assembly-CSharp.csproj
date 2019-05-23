@@ -170,6 +170,7 @@
     <Compile Include="Assets\Scripts\Tiles\LevelStart.cs" />
     <Compile Include="Assets\Scripts\Tiles\Spikes.cs" />
     <Compile Include="Assets\Scripts\UIandCamera\CMCamera.cs" />
+    <Compile Include="Assets\Scripts\UIandCamera\DeadScreen.cs" />
     <Compile Include="Assets\Scripts\UIandCamera\LoadMission.cs" />
     <Compile Include="Assets\Scripts\UIandCamera\MainMenuButtons.cs" />
     <Compile Include="Assets\Scripts\UIandCamera\MissionSelectButton.cs" />

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerEntity : Entity {
@@ -247,6 +248,8 @@ public class PlayerEntity : Entity {
 
     protected override void Die() {
         Instantiate(Corpse, this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -5;
+        Time.timeScale = 0f;
+        SceneManager.LoadScene("DeathScreen", LoadSceneMode.Additive);
         this.gameObject.SetActive(false);
     }
 

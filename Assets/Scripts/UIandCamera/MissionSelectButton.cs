@@ -14,8 +14,9 @@ public class MissionSelectButton : MonoBehaviour {
 
     }
 
-    public void LoadMission(string scene) {
+    public void BasicLoadMission(string scene) {
         SceneManager.LoadScene(scene);
+        SceneManager.LoadScene("BasicUI", LoadSceneMode.Additive);
     }
 
     public void ReturnToMainMenu() {
