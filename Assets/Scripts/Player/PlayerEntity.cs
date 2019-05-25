@@ -248,9 +248,13 @@ public class PlayerEntity : Entity {
 
     protected override void Die() {
         Instantiate(Corpse, this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -5;
+        this.gameObject.SetActive(false);
+        Invoke("ConcludeDeath", 1.0f);
+    }
+
+    private void ConcludeDeath() {
         Time.timeScale = 0f;
         SceneManager.LoadScene("DeathScreen", LoadSceneMode.Additive);
-        this.gameObject.SetActive(false);
     }
 
     public override void Heal(DamageMetadata meta) {
