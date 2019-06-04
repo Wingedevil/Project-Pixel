@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Entity : MonoBehaviour {
-    public const float MP_REGEN = 2.0f;
+    public const float MP_REGEN_PERCENT = 0.01f;
     public const float SP_REGEN = 2.0f;
 
     public int MaxHP;
@@ -87,7 +87,9 @@ public class Entity : MonoBehaviour {
     }
 
     protected virtual void Die() {
-        Instantiate(Corpse, this.transform.position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = -5;
+        GameObject corpse = Instantiate(Corpse, this.transform.position, Quaternion.identity);
+        corpse.GetComponent<SpriteRenderer>().sortingOrder = -5;
+        corpse.transform.localScale = this.transform.localScale;
         Destroy(this.gameObject);
     }
 
@@ -100,7 +102,7 @@ public class Entity : MonoBehaviour {
 
     // Update is called once per frame
     protected virtual void Update() {
-        curMP += curMP < MaxMP ? MP_REGEN * Time.deltaTime : 0;
+        curMP += curMP < MaxMP ? MP_REGEN_PERCENT * Time.deltaTime * MaxMP : 0;
         curSP += curSP < MaxSP ? SP_REGEN * Time.deltaTime : 0;
         curMP = Mathf.Min(curMP, MaxMP);
         curSP = Mathf.Min(curSP, MaxSP);

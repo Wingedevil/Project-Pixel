@@ -136,6 +136,10 @@
     <Compile Include="Assets\Scripts\Passives\MPStreamIdentifier.cs" />
     <Compile Include="Assets\Scripts\Passives\PassiveCounterSpell.cs" />
     <Compile Include="Assets\Scripts\Passives\Zen.cs" />
+    <Compile Include="Assets\Scripts\PGC\PGC_Destroyer.cs" />
+    <Compile Include="Assets\Scripts\PGC\PGC_Generator.cs" />
+    <Compile Include="Assets\Scripts\PGC\PGC_Opening.cs" />
+    <Compile Include="Assets\Scripts\PGC\PGC_Spawner.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerEntity.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPrefs.cs" />
@@ -160,6 +164,7 @@
     <Compile Include="Assets\Scripts\Spells\BasicSpell.cs" />
     <Compile Include="Assets\Scripts\Spells\DeathAndDecay.cs" />
     <Compile Include="Assets\Scripts\Spells\HealingBurst.cs" />
+    <Compile Include="Assets\Scripts\Spells\KineticDecay.cs" />
     <Compile Include="Assets\Scripts\Spells\PowerShot.cs" />
     <Compile Include="Assets\Scripts\Spells\PowerStrike.cs" />
     <Compile Include="Assets\Scripts\Spells\SeekingFury.cs" />

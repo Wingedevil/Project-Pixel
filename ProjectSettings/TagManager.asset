@@ -19,10 +19,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - PG_Spawner
+  - PG_TileArea
+  - Player
+  - SpecialSpell
   - 
   - 
   - 

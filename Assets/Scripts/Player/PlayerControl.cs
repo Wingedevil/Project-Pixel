@@ -127,6 +127,13 @@ public class PlayerControl : MonoBehaviour {
                     playerEntity.Flip(Math.Sign(shootingDir.x));
                 }
             }
+            if (Input.GetKeyDown(KeyCode.Alpha7)) {
+                Vector3 shootingDir = FindShotDirection();
+                needToFlip = false;
+                if (playerEntity.Cast("Kinetic Decay", shootingDir) && shootingDir.x != 0) {
+                    playerEntity.Flip(Math.Sign(shootingDir.x));
+                }
+            }
 
             if (Input.GetKeyDown(KeyCode.Space)) {
                 playerEntity.Interact();

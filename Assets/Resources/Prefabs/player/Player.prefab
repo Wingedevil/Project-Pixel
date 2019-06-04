@@ -67,6 +67,7 @@ Transform:
   - {fileID: 2702558328454057600}
   - {fileID: 8563513445693331235}
   - {fileID: 7790070621979924208}
+  - {fileID: 366439691173199622}
   m_Father: {fileID: 8493995675035836582}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -212,7 +213,7 @@ GameObject:
   - component: {fileID: 8493995675035836584}
   - component: {fileID: 5128444812587763268}
   - component: {fileID: 3743370018262070902}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1078,4 +1079,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7054457690239082695, guid: 775d627d3015fea43898bab436686acf,
     type: 3}
   m_PrefabInstance: {fileID: 8493995675645831615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9056157471211557392
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8493995674625549739}
+    m_Modifications:
+    - target: {fileID: 8698761814087560468, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Decay Surge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc8f96cdbd46de1408d721ded442f9a8, type: 3}
+--- !u!4 &366439691173199622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8698761814087560470, guid: fc8f96cdbd46de1408d721ded442f9a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 9056157471211557392}
   m_PrefabAsset: {fileID: 0}

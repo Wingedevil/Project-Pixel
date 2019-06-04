@@ -16,6 +16,7 @@ public class ParticleTrail : MonoBehaviour {
             Destroy(this.gameObject);
         }
         following = Instantiate(Trail, this.transform.position, Quaternion.identity);
+        following.SetActive(true);
         ParticleSystem.MainModule psMain = following.GetComponent<ParticleSystem>().main;
         psMain.startColor = new ParticleSystem.MinMaxGradient(
             new Color(StartColor.r, StartColor.g, StartColor.b),

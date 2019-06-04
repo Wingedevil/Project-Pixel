@@ -1,5 +1,9 @@
 sceneSetups:
-- path: Assets/Scenes/MissionSelect.unity
+- path: Assets/Scenes/test_pgc.unity
   isLoaded: 1
   isActive: 1
+  isSubScene: 0
+- path: Assets/Scenes/BasicUI.unity
+  isLoaded: 1
+  isActive: 0
   isSubScene: 0

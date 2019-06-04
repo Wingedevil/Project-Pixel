@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MPStream : MonoBehaviour {
-    public float MP_REGEN = 10.0f;
+    public float MP_REGEN_PERCENT = 0.05f;
 
     private PlayerEntity playerEntity;
     private int restoring;
@@ -18,7 +18,7 @@ public class MPStream : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (restoring > 0) {
-            playerEntity.ChangeMP(MP_REGEN * Time.deltaTime);
+            playerEntity.ChangeMP(MP_REGEN_PERCENT * Time.deltaTime * playerEntity.MaxMP);
         }
     }
 

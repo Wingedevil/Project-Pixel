@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2194360498114880293}
   - component: {fileID: 7495755248009436223}
   - component: {fileID: 1248696719623866952}
-  - component: {fileID: 1846449013083501025}
+  - component: {fileID: 6542950965885924760}
   m_Layer: 0
   m_Name: pj_decay
   m_TagString: Untagged
@@ -73,15 +73,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 55b7b62726d29164f9c7926832597377, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.4453125, y: 0.1875}
+  m_Size: {x: 0.0625, y: 0.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &6076036805269429541
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 1342153502393033418}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7a67b090f12743f4c8659241f3d857da, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -157,12 +157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0619529f87de054181a6ea94a6b127f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartColor: {r: 0, g: 0, b: 0, a: 0}
+  StartColor: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 0}
   EndColor: {r: 0, g: 0, b: 0, a: 0}
   Trail: {fileID: 8591396705382734134, guid: 256996da1f5cf10468ea6ac33910952c, type: 3}
   ParticleLifeTime: 1
---- !u!58 &1846449013083501025
-CircleCollider2D:
+--- !u!70 &6542950965885924760
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,5 +175,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.07
+  m_Size: {x: 0.2, y: 0.5}
+  m_Direction: 0
