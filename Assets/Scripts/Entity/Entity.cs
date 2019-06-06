@@ -25,7 +25,7 @@ public class Entity : MonoBehaviour {
 
     public GameObject popupText;
     public bool Ambidextrous;
-    public float AttackSpeed = 1.0f;
+    public float AttackSpeed = 1.5f;
     public float MoveSpeed = 1.0f;
     public GameObject Corpse;
 

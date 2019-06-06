@@ -42,7 +42,7 @@ public abstract class Enemy : Entity {
             Vector3 forceDirection = go.transform.position - this.transform.position;
             float distance = Vector3.Magnitude(forceDirection);
             if (distance <= RejectionRadius) {
-                if (go.GetComponent<Entity>() is null || ReferenceEquals(go, this.gameObject)) {
+                if (go.GetComponent<Entity>() is null || distance == 0) {
                 } else {
                     go.GetComponent<Rigidbody2D>().AddForce((Vector2)forceDirection * FORCE_MAGNITUDE / (distance * distance));
                 }

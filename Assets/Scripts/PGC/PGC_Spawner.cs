@@ -18,7 +18,7 @@ public class PGC_Spawner : MonoBehaviour {
     };
 
     [System.Serializable]
-    public struct TileTuple{
+    public struct TileTuple {
         public float Chance;
         public string[] SpawnableTiles;
     }
@@ -26,19 +26,25 @@ public class PGC_Spawner : MonoBehaviour {
     public Direction DirectionToSpawn;
     public bool Spawned;
     public string DirToGDC;
-    public TileTuple[] SpawnableTiles;
+    public List<TileTuple> SpawnableTiles;
     public GameObject CapTile;
     [HideInInspector]
     public bool Destroying;
+    
+    private bool spawnedCap;
+    private int collisionCount;
 
     // Start is called before the first frame update
     void Start() {
-        Invoke("Spawn", 0.1f);
+        Invoke("Spawn", 0.04f);
     }
 
     // Update is called once per frame
     void Update() {
-
+        if (this.transform.childCount == 0 && collisionCount <= 0) {
+            Spawned = false;
+            Spawn();
+        }
     }
 
     public Direction Opposite(Direction dir) {
@@ -55,33 +61,41 @@ public class PGC_Spawner : MonoBehaviour {
         throw new System.Exception("WTF");
     }
 
-    void Spawn() {
+    public void Spawn() {
         if (!Spawned) {
-            this.transform.root.GetComponent<PGC_Generator>().IncreaseRoom();
+            foreach (Transform child in this.transform) {
+                Destroy(child.gameObject);
+            }
+            if (SpawnableTiles.Count <= 0) {
+                SpawnCap();
+                return;
+            }
+            this.transform.root.GetComponent<PGC_Generator>().ModifyRooms();
             float i;
             int counter;
             do {
                 counter = 0;
                 i = Random.Range(0f, 1f);
                 while (i > 0) {
-                    if (counter >= SpawnableTiles.Length) {
+                    if (counter >= SpawnableTiles.Count) {
                         break;
                     }
                     i -= SpawnableTiles[counter++].Chance;
                 }
-                if (counter >= SpawnableTiles.Length) {
+                if (counter >= SpawnableTiles.Count) {
                     continue;
                 }
             } while (SpawnableTiles[--counter].SpawnableTiles.Length == 0);
             GameObject go = Instantiate(
                 Resources.Load<GameObject>(
-                    DirToGDC 
+                    DirToGDC
                     + SpawnableTiles[counter].SpawnableTiles[Random.Range(0, SpawnableTiles[counter].SpawnableTiles.Length)]
                 ),
                 this.transform
             );
             go.transform.localPosition = go.transform.Find(DirectionToAnchor[DirectionToSpawn]).localPosition * -1;
             Spawned = true;
+            SpawnableTiles.RemoveAt(counter);
         }
     }
 
@@ -90,22 +104,28 @@ public class PGC_Spawner : MonoBehaviour {
         go.transform.localPosition = go.transform.Find(DirectionToAnchor[DirectionToSpawn]).localPosition * -1;
         go.GetComponentInChildren<TilemapRenderer>().sortingOrder = -9;
         Spawned = true;
+        spawnedCap = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        collisionCount++;
         if (!Spawned) {
-            if (collision.GetComponent<PGC_Spawner>()) {
-                return;
+            if (collision.GetComponent<PGC_Opening>()) {
+                Spawned = true;
             }
-            Destroying = true;
-            foreach (Transform child in this.transform) {
-                Destroy(child.gameObject);
+        } else {
+            if (spawnedCap && collision.GetComponent<PGC_Opening>()) {
+                foreach (Transform child in this.transform) {
+                    Destroy(child.gameObject);
+                }
             }
-            // should i spawn a cap?
-            if (collision.GetComponent<TilemapCollider2D>()) {
-                SpawnCap();
-            }
-            Spawned = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        collisionCount--;
+        if (spawnedCap && Spawned && collision.GetComponent<PGC_Opening>()) {
+            Spawned = false;
         }
     }
 }

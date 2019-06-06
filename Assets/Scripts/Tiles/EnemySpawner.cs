@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour {
     public float RandomMax = 2.0f;
     public int EnemiesPerInterval = 1;
 
-    private float time = 0.0f;
+    protected float time = 0.0f;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,22 +21,23 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    protected virtual void Update() {
         if (Enemies.Length <= 0) {
             return;
         }
         if (time <= 0) {
             time = Interval + Random.Range(RandomMin, RandomMax);
-            SpawnEnemy();
+            SpawnEnemy(Vector3.zero);
             return;
         }
         time -= Time.deltaTime;
     }
 
-    private void SpawnEnemy() {
-        GameObject go = Instantiate(Enemies[Random.Range(0, Enemies.Length)], this.transform.position, Quaternion.identity);
-        go.GetComponent<Pathfinding.AIBase>().canSearch = true;
-        GameObject ps = Instantiate(Poof, go.transform.position, Quaternion.identity);
+    protected void SpawnEnemy(Vector3 delta, bool alert = true) {
+        Vector3 spawnCoord = this.transform.position + delta;
+        GameObject go = Instantiate(Enemies[Random.Range(0, Enemies.Length)], spawnCoord, Quaternion.identity);
+        go.GetComponent<Pathfinding.AIBase>().canSearch = alert;
+        GameObject ps = Instantiate(Poof, spawnCoord, Quaternion.identity);
         ParticleSystem.MainModule psMain = ps.GetComponent<ParticleSystem>().main;
         psMain.startColor = Color.white;
 

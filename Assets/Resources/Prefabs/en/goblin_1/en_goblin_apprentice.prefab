@@ -114,12 +114,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxMP: 0
   MaxSP: 0
+  MPCost: 1
+  SPCost: 1
   PhysicalArmor: 0
   PhysicalReduction: 0
   MagicalResistance: 1
+  AttackSpeed: 1
   SpellDamageAmp: 1
-  MPCost: 1
-  SPCost: 1
   WeaponAttack: 15
   IsMelee: 0
   Projectile: {fileID: 8089425373408422431, guid: ce307567b97d43a46b2b30484ce0dcf3,
@@ -190,8 +191,8 @@ MonoBehaviour:
   SPCost: 1
   popupText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
     type: 3}
-  offHandCanAttack: 0
-  AttackSpeed: 1
+  Ambidextrous: 0
+  AttackSpeed: 1.5
   MoveSpeed: 1
   Corpse: {fileID: 3718535702536390823, guid: f30d8176fa5deb14b9b00b8feff5483b, type: 3}
   RejectionRadius: 1

@@ -267,7 +267,7 @@ MonoBehaviour:
   popupText: {fileID: 3458826115852612499, guid: acf520ab1f106334a84acb1394f3cf22,
     type: 3}
   Ambidextrous: 0
-  AttackSpeed: 1
+  AttackSpeed: 1.5
   MoveSpeed: 1.5
   Corpse: {fileID: 149663105010850749, guid: 6f6fa9373c3e68a4984e28dd55cdc180, type: 3}
   WeaponSlot: {fileID: 8493995675123797067}

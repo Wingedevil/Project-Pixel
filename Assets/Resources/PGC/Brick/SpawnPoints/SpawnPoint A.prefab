@@ -79,7 +79,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 3
 --- !u!114 &467081313610833262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   - Chance: 0.15
     SpawnableTiles:
     - WAD T-Junction 1
-  - Chance: 1
+  - Chance: 0.05
     SpawnableTiles:
     - WASD Junction 1
   CapTile: {fileID: 8213098562334806749, guid: 209d1c1cfca61ba449c1c99f8023585b, type: 3}

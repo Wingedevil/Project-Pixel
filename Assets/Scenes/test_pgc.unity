@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Destroying: 0
   DontDestroy: 1
+  UUID: 0
 --- !u!61 &1271303965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -371,9 +372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9d8b69c4a3744469258e5e38827a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinRooms: 10
-  MaxRooms: 20
-  TimeToCheck: 0.5
+  MinRooms: 15
+  MaxRooms: 50
+  TimeToCheck: 0.2
   StartingRoom: {fileID: 3642074074191168449, guid: 6dc80a840152dcf46a8331ea89e5cae3,
     type: 3}
   SpawningChild: {fileID: 1670483798}

@@ -172,7 +172,9 @@
     <Compile Include="Assets\Scripts\Spells\Spellbook.cs" />
     <Compile Include="Assets\Scripts\Spells\WeaponSpell.cs" />
     <Compile Include="Assets\Scripts\Tiles\Down.cs" />
+    <Compile Include="Assets\Scripts\Tiles\EnemyAmbushSpawner.cs" />
     <Compile Include="Assets\Scripts\Tiles\EnemyGroupSpawner.cs" />
+    <Compile Include="Assets\Scripts\Tiles\EnemyOffscreenSpawner.cs" />
     <Compile Include="Assets\Scripts\Tiles\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Tiles\LevelStart.cs" />
     <Compile Include="Assets\Scripts\Tiles\Spikes.cs" />
