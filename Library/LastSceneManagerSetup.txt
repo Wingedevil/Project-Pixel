@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/test_pgc.unity
+- path: Assets/Scenes/lvl_t_survival.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -708,12 +708,12 @@ PrefabInstance:
     - target: {fileID: 5117376873568311029, guid: 7c335d11f38aff944ad806db3f1289b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.619998
+      value: -2.46
       objectReference: {fileID: 0}
     - target: {fileID: 5117376873568311029, guid: 7c335d11f38aff944ad806db3f1289b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4997272
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 5117376873568311029, guid: 7c335d11f38aff944ad806db3f1289b6,
         type: 3}
@@ -764,6 +764,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ActivateDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117376873568311033, guid: 7c335d11f38aff944ad806db3f1289b6,
+        type: 3}
+      propertyPath: DropChances.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c335d11f38aff944ad806db3f1289b6, type: 3}
